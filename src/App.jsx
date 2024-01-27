@@ -1,22 +1,19 @@
 import "./App.css";
 import { Canvas } from "@react-three/fiber";
-import { FullFrame } from "./FullFrame";
 import { OrbitControls } from "@react-three/drei";
+import Experience from "./Experience";
 
-function App() {
+export default function App() {
   return (
     <>
       <Canvas
+        shadows
         orthographic
-        camera={{ fov: 100, zoom: 100, position: [0, 0, 8] }}
+        camera={{ fov: 100, zoom: 100, position: [0, 2, 8] }}
       >
         <OrbitControls />
-        <directionalLight position={[1, 2, 3]} intensity={3} />
-        <ambientLight />
-        <FullFrame scale={0.1} position={[-2, -1, 0]} />
+        <Experience />
       </Canvas>
     </>
   );
 }
-
-export default App;

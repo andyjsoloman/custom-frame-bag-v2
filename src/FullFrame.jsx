@@ -16,7 +16,7 @@ const panelColors = [
   { label: "Black", color: "#252829" },
 ];
 
-export function FullFrame(props) {
+export default function FullFrame(props) {
   const { nodes, materials } = useGLTF("src/assets/bagv2.gltf");
   return (
     <group {...props} dispose={null}>
@@ -25,7 +25,11 @@ export function FullFrame(props) {
           castShadow
           receiveShadow
           geometry={nodes.FrameBagv2_1.geometry}
-          material={new THREE.MeshStandardMaterial({ color: "#FDB516" })}
+          material={
+            new THREE.MeshStandardMaterial({
+              color: "#FDB516",
+            })
+          }
           color={"coral"}
         />
         <mesh
