@@ -6,7 +6,7 @@ export default function App() {
   return (
     <>
       <Canvas
-        shadows={false}
+        shadows
         orthographic
         camera={{ fov: 100, zoom: 100, position: [0, 2, 8] }}
       >

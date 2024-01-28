@@ -4,7 +4,6 @@ import * as THREE from "three";
 import { Perf } from "r3f-perf";
 
 import FullFrame from "./FullFrame";
-import Plane from "./Plane";
 
 export default function Experience() {
   const directionalLight = useRef();
@@ -28,7 +27,6 @@ export default function Experience() {
       />
       <ambientLight intensity={0.5} />
       <FullFrame scale={0.1} position={[-2, -1, 0]} />
-      <Plane />
     </>
   );
 }
