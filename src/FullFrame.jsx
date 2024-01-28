@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property */
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import * as THREE from "three";
@@ -17,7 +18,7 @@ const panelColors = [
 ];
 
 export default function FullFrame(props) {
-  const { nodes, materials } = useGLTF("src/assets/bagv2.gltf");
+  const { nodes } = useGLTF("src/assets/bagv2.gltf");
   return (
     <group {...props} dispose={null}>
       <group rotation={[-Math.PI, 0, 0]}>
