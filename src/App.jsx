@@ -5,6 +5,7 @@ import Experience from "./Experience";
 export default function App() {
   return (
     <>
+      <h1>Frame Bag Customizer</h1>
       <Canvas
         shadows
         orthographic
