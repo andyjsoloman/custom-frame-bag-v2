@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property */
 import { ContactShadows, useHelper } from "@react-three/drei";
 import { useRef } from "react";
 import * as THREE from "three";
@@ -5,7 +6,12 @@ import { Perf } from "r3f-perf";
 
 import FullFrame from "./FullFrame";
 
-export default function Experience() {
+export default function Experience({
+  panel1Color,
+  panel2Color,
+  panel3Color,
+  panel4Color,
+}) {
   const directionalLight = useRef();
   const directionalLight2 = useRef();
   useHelper(directionalLight, THREE.DirectionalLightHelper, 1);
@@ -35,7 +41,14 @@ export default function Experience() {
         intensity={1.5}
       />
       <ambientLight intensity={0.5} />
-      <FullFrame scale={0.1} position={[-2, -1, 0]} />
+      <FullFrame
+        scale={0.1}
+        position={[-2, -1, 0]}
+        panel1Color={panel1Color}
+        panel2Color={panel2Color}
+        panel3Color={panel3Color}
+        panel4Color={panel4Color}
+      />
     </>
   );
 }

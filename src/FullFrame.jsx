@@ -3,22 +3,9 @@ import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 
-const panelColors = [
-  { label: "Gold", color: "#FDB516" },
-  { label: "Fuschia", color: "#B6015A" },
-  { label: "Lilac", color: "#90458D" },
-  { label: "Teal", color: "#02838F" },
-  { label: "Blue", color: "#085ECA" },
-  { label: "Forest Green", color: "#112520" },
-  { label: "Brick Red", color: "#8F1420" },
-  { label: "Coyote", color: "#805C37" },
-  { label: "White", color: "#EBEBEB" },
-  { label: "Grey", color: "#413F42" },
-  { label: "Black", color: "#252829" },
-];
-
 export default function FullFrame(props) {
   const { nodes } = useGLTF("src/assets/bagv2.gltf");
+
   return (
     <group {...props} dispose={null}>
       <group rotation={[-Math.PI, 0, 0]}>
@@ -28,7 +15,7 @@ export default function FullFrame(props) {
           geometry={nodes.FrameBagv2_1.geometry}
           material={
             new THREE.MeshStandardMaterial({
-              color: "#FDB516",
+              color: props.panel1Color,
             })
           }
           color={"coral"}
@@ -37,13 +24,17 @@ export default function FullFrame(props) {
           castShadow
           receiveShadow
           geometry={nodes.FrameBagv2_2.geometry}
-          material={new THREE.MeshStandardMaterial({ color: "#90458D" })}
+          material={
+            new THREE.MeshStandardMaterial({ color: props.panel2Color })
+          }
         />
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.FrameBagv2_3.geometry}
-          material={new THREE.MeshStandardMaterial({ color: "#B6015A" })}
+          material={
+            new THREE.MeshStandardMaterial({ color: props.panel3Color })
+          }
         />
         <mesh
           castShadow
@@ -55,7 +46,9 @@ export default function FullFrame(props) {
           castShadow
           receiveShadow
           geometry={nodes.FrameBagv2_5.geometry}
-          material={new THREE.MeshStandardMaterial({ color: "#112520" })}
+          material={
+            new THREE.MeshStandardMaterial({ color: props.panel4Color })
+          }
         />
         <mesh
           castShadow
