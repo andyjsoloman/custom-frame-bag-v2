@@ -9,6 +9,11 @@ const Button = styled.button`
   background-color: ${(props) => props.color};
 `;
 
-export default function ColorButton({ color, onClick }) {
-  return <Button color={color} onClick={onClick} />;
+export default function ColorButton({ color, onClick, label }) {
+  return (
+    <Button color={color} onClick={onClick}>
+      {" "}
+      <span className="visually-hidden">{label}</span>
+    </Button>
+  );
 }

@@ -4,6 +4,7 @@ import { OrbitControls } from "@react-three/drei";
 import Experience from "./Experience";
 import ButtonRow from "./ButtonRow";
 import { defaultPanelColor } from "./constants";
+import styled from "styled-components";
 
 export default function App() {
   const [panel1Color, setPanel1Color] = useState(defaultPanelColor);
@@ -18,6 +19,7 @@ export default function App() {
       <ButtonRow handleSelectColor={setPanel2Color} />
       <ButtonRow handleSelectColor={setPanel3Color} />
       <ButtonRow handleSelectColor={setPanel4Color} />
+
       <Canvas
         shadows
         orthographic

@@ -6,11 +6,22 @@ html,
 body,
 #root {
   font-family: "Fjalla One", sans-serif;
-  width: 100vw;
+  max-width: 100vw;
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  /* overflow: hidden; */
+  display: flex;
 
   background: hsl(188, 45, 98);
+}
+.visually-hidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
 }
