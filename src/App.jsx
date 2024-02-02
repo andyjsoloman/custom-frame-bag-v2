@@ -12,27 +12,41 @@ export default function App() {
   const [panel3Color, setPanel3Color] = useState(defaultPanelColor);
   const [panel4Color, setPanel4Color] = useState(defaultPanelColor);
 
+  const FormBody = styled.div`
+    display: flex;
+    flex-direction: column;
+    border: 2px solid red;
+  `;
+
+  const CanvasWrapper = styled.div`
+    border: 2px solid green;
+    width: 1000px;
+  `;
+
   return (
     <>
-      <h1>Frame Bag Customizer</h1>
-      <ButtonRow handleSelectColor={setPanel1Color} />
-      <ButtonRow handleSelectColor={setPanel2Color} />
-      <ButtonRow handleSelectColor={setPanel3Color} />
-      <ButtonRow handleSelectColor={setPanel4Color} />
-
-      <Canvas
-        shadows
-        orthographic
-        camera={{ fov: 100, zoom: 100, position: [0, 2, 8] }}
-      >
-        <OrbitControls />
-        <Experience
-          panel1Color={panel1Color}
-          panel2Color={panel2Color}
-          panel3Color={panel3Color}
-          panel4Color={panel4Color}
-        />
-      </Canvas>
+      <FormBody>
+        <h1>Frame Bag Customizer</h1>
+        <ButtonRow handleSelectColor={setPanel1Color} />
+        <ButtonRow handleSelectColor={setPanel2Color} />
+        <ButtonRow handleSelectColor={setPanel3Color} />
+        <ButtonRow handleSelectColor={setPanel4Color} />
+      </FormBody>
+      <CanvasWrapper>
+        <Canvas
+          shadows
+          orthographic
+          camera={{ fov: 100, zoom: 100, position: [0, 2, 8] }}
+        >
+          <OrbitControls />
+          <Experience
+            panel1Color={panel1Color}
+            panel2Color={panel2Color}
+            panel3Color={panel3Color}
+            panel4Color={panel4Color}
+          />
+        </Canvas>
+      </CanvasWrapper>
     </>
   );
 }
