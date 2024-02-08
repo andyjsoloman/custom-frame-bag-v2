@@ -3,6 +3,7 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import Experience from "./Experience";
 import ButtonRow from "./ButtonRow";
+import BagButtonContainer from "./BagButtonContainer";
 import { defaultPanelColor } from "./constants";
 import styled from "styled-components";
 
@@ -11,6 +12,10 @@ export default function App() {
   const [panel2Color, setPanel2Color] = useState(defaultPanelColor);
   const [panel3Color, setPanel3Color] = useState(defaultPanelColor);
   const [panel4Color, setPanel4Color] = useState(defaultPanelColor);
+
+  const [bagSize, setBagSize] = useState("default");
+
+  console.log(bagSize);
 
   const FormBody = styled.div`
     display: flex;
@@ -21,6 +26,8 @@ export default function App() {
   const CanvasWrapper = styled.form`
     border: 2px solid green;
     width: 1000px;
+    display: flex;
+    justify-content: center;
   `;
 
   return (
@@ -111,6 +118,7 @@ export default function App() {
             panel4Color={panel4Color}
           />
         </Canvas>
+        <BagButtonContainer handleSelectBag={setBagSize} />
       </CanvasWrapper>
     </>
   );

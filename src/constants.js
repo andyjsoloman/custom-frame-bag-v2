@@ -13,3 +13,10 @@ export const panelColors = [
 ];
 
 export const defaultPanelColor = "#FFF";
+
+export const bagSizes = [
+  { label: "Full Frame" },
+  { label: "Half Frame" },
+  { label: "Full Frame 2 Zip" },
+  { label: "Double Whammy" },
+];
