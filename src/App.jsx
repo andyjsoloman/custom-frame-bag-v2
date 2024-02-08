@@ -7,6 +7,19 @@ import BagButtonContainer from "./BagButtonContainer";
 import { defaultPanelColor } from "./constants";
 import styled from "styled-components";
 
+const FormBody = styled.div`
+  display: flex;
+  flex-direction: column;
+  border: 2px solid red;
+`;
+
+const CanvasWrapper = styled.form`
+  border: 2px solid green;
+  width: 1000px;
+  display: flex;
+  justify-content: center;
+`;
+
 export default function App() {
   const [panel1Color, setPanel1Color] = useState(defaultPanelColor);
   const [panel2Color, setPanel2Color] = useState(defaultPanelColor);
@@ -16,19 +29,6 @@ export default function App() {
   const [bagSize, setBagSize] = useState("default");
 
   console.log(bagSize);
-
-  const FormBody = styled.div`
-    display: flex;
-    flex-direction: column;
-    border: 2px solid red;
-  `;
-
-  const CanvasWrapper = styled.form`
-    border: 2px solid green;
-    width: 1000px;
-    display: flex;
-    justify-content: center;
-  `;
 
   return (
     <>
