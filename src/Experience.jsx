@@ -14,6 +14,7 @@ export default function Experience({
   panel2Color,
   panel3Color,
   panel4Color,
+  bagSize,
 }) {
   const directionalLight = useRef();
   const directionalLight2 = useRef();
@@ -44,38 +45,47 @@ export default function Experience({
         intensity={1.5}
       />
       <ambientLight intensity={0.5} />
-      {/* <FullFrame
-        scale={0.1}
-        position={[-2, -1, 0]}
-        panel1Color={panel1Color}
-        panel2Color={panel2Color}
-        panel3Color={panel3Color}
-        panel4Color={panel4Color}
-      /> */}
-      {/* <HalfFrame
-        scale={0.1}
-        position={[-2, -1, 0]}
-        panel1Color={panel1Color}
-        panel2Color={panel2Color}
-        panel3Color={panel3Color}
-        panel4Color={panel4Color}
-      /> */}
-      {/* <DoubleWhammy
-        scale={0.1}
-        position={[-2, -1, 0]}
-        panel1Color={panel1Color}
-        panel2Color={panel2Color}
-        panel3Color={panel3Color}
-        panel4Color={panel4Color}
-      /> */}
-      <FullFrame2Zip
-        scale={0.1}
-        position={[-2, -1, 0]}
-        panel1Color={panel1Color}
-        panel2Color={panel2Color}
-        panel3Color={panel3Color}
-        panel4Color={panel4Color}
-      />
+
+      {bagSize === "Full Frame" && (
+        <FullFrame
+          scale={0.1}
+          position={[-2, -1, 0]}
+          panel1Color={panel1Color}
+          panel2Color={panel2Color}
+          panel3Color={panel3Color}
+          panel4Color={panel4Color}
+        />
+      )}
+      {bagSize === "Half Frame" && (
+        <HalfFrame
+          scale={0.1}
+          position={[-2, -1, 0]}
+          panel1Color={panel1Color}
+          panel2Color={panel2Color}
+          panel3Color={panel3Color}
+          panel4Color={panel4Color}
+        />
+      )}
+      {bagSize === "Double Whammy" && (
+        <DoubleWhammy
+          scale={0.1}
+          position={[-2, -1, 0]}
+          panel1Color={panel1Color}
+          panel2Color={panel2Color}
+          panel3Color={panel3Color}
+          panel4Color={panel4Color}
+        />
+      )}
+      {bagSize === "Full Frame 2 Zip" && (
+        <FullFrame2Zip
+          scale={0.1}
+          position={[-2, -1, 0]}
+          panel1Color={panel1Color}
+          panel2Color={panel2Color}
+          panel3Color={panel3Color}
+          panel4Color={panel4Color}
+        />
+      )}
     </>
   );
 }
