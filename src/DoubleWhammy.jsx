@@ -58,25 +58,33 @@ export default function DoubleWhammy(props) {
           castShadow
           receiveShadow
           geometry={nodes.DoubleWhammy_7.geometry}
-          material={new THREE.MeshStandardMaterial({ color: "coral" })}
+          material={
+            new THREE.MeshStandardMaterial({ color: props.panel8Color })
+          }
         />
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.DoubleWhammy_8.geometry}
-          material={new THREE.MeshStandardMaterial({ color: "coral" })}
+          material={
+            new THREE.MeshStandardMaterial({ color: props.panel5Color })
+          }
         />
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.DoubleWhammy_9.geometry}
-          material={new THREE.MeshStandardMaterial({ color: "coral" })}
+          material={
+            new THREE.MeshStandardMaterial({ color: props.panel7Color })
+          }
         />
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.DoubleWhammy_10.geometry}
-          material={new THREE.MeshStandardMaterial({ color: "coral" })}
+          material={
+            new THREE.MeshStandardMaterial({ color: props.panel6Color })
+          }
         />
       </group>
     </group>

@@ -58,13 +58,17 @@ export default function FullFrame2Zip(props) {
           castShadow
           receiveShadow
           geometry={nodes.FullFrame2Zip_7.geometry}
-          material={new THREE.MeshStandardMaterial({ color: "coral" })}
+          material={
+            new THREE.MeshStandardMaterial({ color: props.panel5Color })
+          }
         />
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.FullFrame2Zip_8.geometry}
-          material={new THREE.MeshStandardMaterial({ color: "coral" })}
+          material={
+            new THREE.MeshStandardMaterial({ color: props.panel6Color })
+          }
         />
       </group>
     </group>

@@ -14,6 +14,10 @@ export default function Experience({
   panel2Color,
   panel3Color,
   panel4Color,
+  panel5Color,
+  panel6Color,
+  panel7Color,
+  panel8Color,
   bagSize,
 }) {
   const directionalLight = useRef();
@@ -74,6 +78,10 @@ export default function Experience({
           panel2Color={panel2Color}
           panel3Color={panel3Color}
           panel4Color={panel4Color}
+          panel5Color={panel5Color}
+          panel6Color={panel6Color}
+          panel7Color={panel7Color}
+          panel8Color={panel8Color}
         />
       )}
       {bagSize === "Full Frame 2 Zip" && (
@@ -84,6 +92,8 @@ export default function Experience({
           panel2Color={panel2Color}
           panel3Color={panel3Color}
           panel4Color={panel4Color}
+          panel5Color={panel5Color}
+          panel6Color={panel6Color}
         />
       )}
     </>

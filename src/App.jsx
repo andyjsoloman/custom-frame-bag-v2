@@ -30,6 +30,10 @@ export default function App() {
   const [panel2Color, setPanel2Color] = useState(defaultPanelColor);
   const [panel3Color, setPanel3Color] = useState(defaultPanelColor);
   const [panel4Color, setPanel4Color] = useState(defaultPanelColor);
+  const [panel5Color, setPanel5Color] = useState(defaultPanelColor);
+  const [panel6Color, setPanel6Color] = useState(defaultPanelColor);
+  const [panel7Color, setPanel7Color] = useState(defaultPanelColor);
+  const [panel8Color, setPanel8Color] = useState(defaultPanelColor);
 
   const [bagSize, setBagSize] = useState("Full Frame");
 
@@ -69,6 +73,26 @@ export default function App() {
         <ButtonRow handleSelectColor={setPanel3Color} />
         <h3>Section 4</h3>
         <ButtonRow handleSelectColor={setPanel4Color} />
+        {bagSize === "Full Frame 2 Zip" && (
+          <>
+            <h3>Section 5</h3>
+            <ButtonRow handleSelectColor={setPanel5Color} />
+            <h3>Section 6</h3>
+            <ButtonRow handleSelectColor={setPanel6Color} />
+          </>
+        )}
+        {bagSize === "Double Whammy" && (
+          <>
+            <h3>Section 5</h3>
+            <ButtonRow handleSelectColor={setPanel5Color} />
+            <h3>Section 6</h3>
+            <ButtonRow handleSelectColor={setPanel6Color} />
+            <h3>Section 7</h3>
+            <ButtonRow handleSelectColor={setPanel7Color} />
+            <h3>Section 8</h3>
+            <ButtonRow handleSelectColor={setPanel8Color} />
+          </>
+        )}
         <h2>Entry</h2>
         <label htmlFor="entry">
           <input type="radio" name="entry" id="main-zipper" />1 Main Zipper
@@ -122,6 +146,10 @@ export default function App() {
               panel2Color={panel2Color}
               panel3Color={panel3Color}
               panel4Color={panel4Color}
+              panel5Color={panel5Color}
+              panel6Color={panel6Color}
+              panel7Color={panel7Color}
+              panel8Color={panel8Color}
               bagSize={bagSize}
             />
           </Canvas>
