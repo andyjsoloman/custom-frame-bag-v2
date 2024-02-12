@@ -6,8 +6,9 @@ import ButtonRow from "./ButtonRow";
 import BagButtonContainer from "./BagButtonContainer";
 import { defaultPanelColor } from "./constants";
 import styled from "styled-components";
+import useForm from "./lib/useForm";
 
-const FormBody = styled.div`
+const FormBody = styled.form`
   display: flex;
   flex-direction: column;
   border: 2px solid red;
@@ -37,32 +38,64 @@ export default function App() {
 
   const [bagSize, setBagSize] = useState("Full Frame");
 
-  console.log(bagSize);
+  const { inputs, handleChange, clearForm, resetForm } = useForm({
+    name: "Name",
+    bike: "Bike",
+    bikeSize: "Bike Size",
+    email: "Email",
+  });
+
+  function handleSubmit(e) {
+    e.preventDefault();
+  }
 
   return (
     <>
-      <FormBody>
+      <FormBody onSubmit={handleSubmit}>
         <h1>Frame Bag Customizer</h1>
         <label htmlFor="name">
           Name
-          <input type="text" id="name" name="name" placeholder="Name" />
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Name"
+            value={inputs.name}
+            onChange={handleChange}
+          />
         </label>
         <label htmlFor="bike">
           Bike
-          <input type="text" id="bike" name="bike" placeholder="Bike" />
+          <input
+            type="text"
+            id="bike"
+            name="bike"
+            placeholder="Bike"
+            value={inputs.bike}
+            onChange={handleChange}
+          />
         </label>
-        <label htmlFor="bike-size">
+        <label htmlFor="bikeSize">
           Bike Size
           <input
             type="text"
-            id="bike-size"
-            name="bike-size"
+            id="bikeSize"
+            name="bikeSize"
             placeholder="Bike Size"
+            value={inputs.bikeSize}
+            onChange={handleChange}
           />
         </label>
         <label htmlFor="email">
           Email
-          <input type="email" id="email" name="email" placeholder="Email" />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Email"
+            value={inputs.email}
+            onChange={handleChange}
+          />
         </label>
         <h2>Panel Colours</h2>
         <h3>Section 1</h3>
@@ -132,6 +165,13 @@ export default function App() {
           Other{" "}
           <input type="text" id="other" name="other" placeholder="Details" />
         </label>
+        <button>Submit</button>
+        <button type="button" onClick={clearForm}>
+          Clear Form
+        </button>
+        <button type="button" onClick={resetForm}>
+          Reset Form
+        </button>
       </FormBody>
       <FlexContainer>
         <CanvasWrapper>
