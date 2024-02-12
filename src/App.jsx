@@ -43,10 +43,15 @@ export default function App() {
     bike: "Bike",
     bikeSize: "Bike Size",
     email: "Email",
+    entry: "",
+    pockets: "",
+    mounting: "",
+    mountingDetails: "",
   });
 
   function handleSubmit(e) {
     e.preventDefault();
+    console.log({ bagSize, inputs, panel1: panel1Color });
   }
 
   return (
@@ -128,42 +133,106 @@ export default function App() {
         )}
         <h2>Entry</h2>
         <label htmlFor="entry">
-          <input type="radio" name="entry" id="main-zipper" />1 Main Zipper
+          <input
+            type="radio"
+            name="entry"
+            id="main-zipper"
+            value="One Main Zipper"
+            onChange={handleChange}
+          />
+          1 Main Zipper
         </label>
         <label htmlFor="entry">
-          <input type="radio" name="entry" id="main-zipper-div" />2 Main Zippers
-          w/ Divider
+          <input
+            type="radio"
+            name="entry"
+            id="main-zipper-div"
+            value="Two Main Zippers w/Divider"
+            onChange={handleChange}
+          />
+          2 Main Zippers w/ Divider
         </label>
         <label htmlFor="entry">
-          <input type="radio" name="entry" id="roll-top" />
+          <input
+            type="radio"
+            name="entry"
+            id="roll-top"
+            value="Roll Top"
+            onChange={handleChange}
+          />
           Roll Top
         </label>
         <h2>Pockets</h2>
         <label htmlFor="pockets">
-          <input type="radio" name="pockets" id="nd-half" />
+          <input
+            type="radio"
+            name="pockets"
+            id="nd-half"
+            value="Non Drive Half"
+            onChange={handleChange}
+          />
           Non-Drive Half
         </label>
         <label htmlFor="entry">
-          <input type="radio" name="pockets" id="nd-full" />
+          <input
+            type="radio"
+            name="pockets"
+            id="nd-full"
+            value="Non Drive Full"
+            onChange={handleChange}
+          />
           Non-Drive Full
         </label>
         <h2>Mounting</h2>
         <label htmlFor="mounting">
-          <input type="radio" name="mounting" id="velcro" />
+          <input
+            type="radio"
+            name="mounting"
+            id="velcro"
+            value="Standard Velcro"
+            onChange={handleChange}
+          />
           Standard Velcro
         </label>
         <label htmlFor="mounting">
-          <input type="radio" name="mounting" id="laceup" />
+          <input
+            type="radio"
+            name="mounting"
+            id="laceup"
+            value="Lace-Up"
+            onChange={handleChange}
+          />
           Lace-Up
         </label>
         <label htmlFor="mounting">
-          <input type="radio" name="mounting" id="bolton" />
+          <input
+            type="radio"
+            name="mounting"
+            id="bolton"
+            value="Bolt-On"
+            onChange={handleChange}
+          />
           Bolt-On
         </label>
         <label htmlFor="mounting">
-          <input type="radio" name="mounting" id="other" />
-          Other{" "}
-          <input type="text" id="other" name="other" placeholder="Details" />
+          <input
+            type="radio"
+            name="mounting"
+            id="other"
+            value="Other"
+            onChange={handleChange}
+          />
+          Other
+          {inputs.mounting === "Other" && (
+            <input
+              type="text"
+              id="otherDetails"
+              name="mountingDetails"
+              placeholder="Details"
+              value={inputs.mountingDetails}
+              onChange={handleChange}
+            />
+          )}
         </label>
         <button>Submit</button>
         <button type="button" onClick={clearForm}>

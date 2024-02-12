@@ -11,7 +11,7 @@ const Button = styled.button`
 
 export default function ColorButton({ color, onClick, label }) {
   return (
-    <Button color={color} onClick={onClick}>
+    <Button type="button" color={color} onClick={onClick}>
       {" "}
       <span className="visually-hidden">{label}</span>
     </Button>
