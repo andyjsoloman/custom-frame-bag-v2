@@ -2,13 +2,15 @@ import { useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import Experience from "./Experience";
-import ButtonRow from "./ButtonRow";
+import PanelColours from "./PanelColours";
 import BagButtonContainer from "./BagButtonContainer";
 import { defaultPanelColor } from "./constants";
 import styled from "styled-components";
 import useForm from "./lib/useForm";
+import OrderInfo from "./OrderInfo";
+import PocketsMounting from "./PocketsMounting";
 
-const FormBody = styled.form`
+const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
   border: 2px solid red;
@@ -51,189 +53,27 @@ export default function App() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log({ bagSize, inputs, panel1: panel1Color });
+    console.log({ bagSize, inputs, panel1: panel1Color, panel5: panel5Color });
   }
 
   return (
     <>
-      <FormBody onSubmit={handleSubmit}>
+      <FormContainer onSubmit={handleSubmit}>
         <h1>Frame Bag Customizer</h1>
-        <label htmlFor="name">
-          Name
-          <input
-            type="text"
-            id="name"
-            name="name"
-            placeholder="Name"
-            value={inputs.name}
-            onChange={handleChange}
-          />
-        </label>
-        <label htmlFor="bike">
-          Bike
-          <input
-            type="text"
-            id="bike"
-            name="bike"
-            placeholder="Bike"
-            value={inputs.bike}
-            onChange={handleChange}
-          />
-        </label>
-        <label htmlFor="bikeSize">
-          Bike Size
-          <input
-            type="text"
-            id="bikeSize"
-            name="bikeSize"
-            placeholder="Bike Size"
-            value={inputs.bikeSize}
-            onChange={handleChange}
-          />
-        </label>
-        <label htmlFor="email">
-          Email
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Email"
-            value={inputs.email}
-            onChange={handleChange}
-          />
-        </label>
-        <h2>Panel Colours</h2>
-        <h3>Section 1</h3>
-        <ButtonRow handleSelectColor={setPanel1Color} />
-        <h3>Section 2</h3>
-        <ButtonRow handleSelectColor={setPanel2Color} />
-        <h3>Section 3</h3>
-        <ButtonRow handleSelectColor={setPanel3Color} />
-        <h3>Section 4</h3>
-        <ButtonRow handleSelectColor={setPanel4Color} />
-        {bagSize === "Full Frame 2 Zip" && (
-          <>
-            <h3>Section 5</h3>
-            <ButtonRow handleSelectColor={setPanel5Color} />
-            <h3>Section 6</h3>
-            <ButtonRow handleSelectColor={setPanel6Color} />
-          </>
-        )}
-        {bagSize === "Double Whammy" && (
-          <>
-            <h3>Section 5</h3>
-            <ButtonRow handleSelectColor={setPanel5Color} />
-            <h3>Section 6</h3>
-            <ButtonRow handleSelectColor={setPanel6Color} />
-            <h3>Section 7</h3>
-            <ButtonRow handleSelectColor={setPanel7Color} />
-            <h3>Section 8</h3>
-            <ButtonRow handleSelectColor={setPanel8Color} />
-          </>
-        )}
-        <h2>Entry</h2>
-        <label htmlFor="entry">
-          <input
-            type="radio"
-            name="entry"
-            id="main-zipper"
-            value="One Main Zipper"
-            onChange={handleChange}
-          />
-          1 Main Zipper
-        </label>
-        <label htmlFor="entry">
-          <input
-            type="radio"
-            name="entry"
-            id="main-zipper-div"
-            value="Two Main Zippers w/Divider"
-            onChange={handleChange}
-          />
-          2 Main Zippers w/ Divider
-        </label>
-        <label htmlFor="entry">
-          <input
-            type="radio"
-            name="entry"
-            id="roll-top"
-            value="Roll Top"
-            onChange={handleChange}
-          />
-          Roll Top
-        </label>
-        <h2>Pockets</h2>
-        <label htmlFor="pockets">
-          <input
-            type="radio"
-            name="pockets"
-            id="nd-half"
-            value="Non Drive Half"
-            onChange={handleChange}
-          />
-          Non-Drive Half
-        </label>
-        <label htmlFor="entry">
-          <input
-            type="radio"
-            name="pockets"
-            id="nd-full"
-            value="Non Drive Full"
-            onChange={handleChange}
-          />
-          Non-Drive Full
-        </label>
-        <h2>Mounting</h2>
-        <label htmlFor="mounting">
-          <input
-            type="radio"
-            name="mounting"
-            id="velcro"
-            value="Standard Velcro"
-            onChange={handleChange}
-          />
-          Standard Velcro
-        </label>
-        <label htmlFor="mounting">
-          <input
-            type="radio"
-            name="mounting"
-            id="laceup"
-            value="Lace-Up"
-            onChange={handleChange}
-          />
-          Lace-Up
-        </label>
-        <label htmlFor="mounting">
-          <input
-            type="radio"
-            name="mounting"
-            id="bolton"
-            value="Bolt-On"
-            onChange={handleChange}
-          />
-          Bolt-On
-        </label>
-        <label htmlFor="mounting">
-          <input
-            type="radio"
-            name="mounting"
-            id="other"
-            value="Other"
-            onChange={handleChange}
-          />
-          Other
-          {inputs.mounting === "Other" && (
-            <input
-              type="text"
-              id="otherDetails"
-              name="mountingDetails"
-              placeholder="Details"
-              value={inputs.mountingDetails}
-              onChange={handleChange}
-            />
-          )}
-        </label>
+        <PanelColours
+          bagSize={bagSize}
+          setPanel1Color={setPanel1Color}
+          setPanel2Color={setPanel2Color}
+          setPanel3Color={setPanel3Color}
+          setPanel4Color={setPanel4Color}
+          setPanel5Color={setPanel5Color}
+          setPanel6Color={setPanel6Color}
+          setPanel7Color={setPanel7Color}
+          setPanel8Color={setPanel8Color}
+        />
+        <PocketsMounting inputs={inputs} handleChange={handleChange} />
+        <OrderInfo inputs={inputs} handleChange={handleChange} />
+
         <button>Submit</button>
         <button type="button" onClick={clearForm}>
           Clear Form
@@ -241,7 +81,7 @@ export default function App() {
         <button type="button" onClick={resetForm}>
           Reset Form
         </button>
-      </FormBody>
+      </FormContainer>
       <FlexContainer>
         <CanvasWrapper>
           <Canvas
