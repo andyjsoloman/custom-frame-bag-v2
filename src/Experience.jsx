@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/no-unknown-property */
 import { ContactShadows, useHelper } from "@react-three/drei";
 import { useRef } from "react";

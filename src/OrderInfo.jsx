@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 export default function OrderInfo({ inputs, handleChange }) {
   return (
     <>

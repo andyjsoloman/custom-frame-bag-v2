@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import ButtonRow from "./ButtonRow";
 
 export default function PanelColours({

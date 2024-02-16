@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { bagSizes } from "./constants";
 import styled from "styled-components";
 import BagButton from "./BagButton";

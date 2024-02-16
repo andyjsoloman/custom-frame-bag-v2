@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { panelColors } from "./constants";
 import ColorButton from "./ColorButton";
 
