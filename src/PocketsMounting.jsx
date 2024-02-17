@@ -1,5 +1,10 @@
 /* eslint-disable react/prop-types */
-export default function PocketsMounting({ inputs, handleChange }) {
+export default function PocketsMounting({
+  inputs,
+  handleChange,
+  setCurrentStep,
+  currentStep,
+}) {
   return (
     <>
       <h2>Pockets & Mounting</h2>
@@ -11,6 +16,7 @@ export default function PocketsMounting({ inputs, handleChange }) {
           id="main-zipper"
           value="One Main Zipper"
           onChange={handleChange}
+          checked={inputs.entry === "One Main Zipper"}
         />
         1 Main Zipper
       </label>
@@ -21,6 +27,7 @@ export default function PocketsMounting({ inputs, handleChange }) {
           id="main-zipper-div"
           value="Two Main Zippers w/Divider"
           onChange={handleChange}
+          checked={inputs.entry === "Two Main Zippers w/Divider"}
         />
         2 Main Zippers w/ Divider
       </label>
@@ -31,6 +38,7 @@ export default function PocketsMounting({ inputs, handleChange }) {
           id="roll-top"
           value="Roll Top"
           onChange={handleChange}
+          checked={inputs.entry === "Roll Top"}
         />
         Roll Top
       </label>
@@ -42,16 +50,18 @@ export default function PocketsMounting({ inputs, handleChange }) {
           id="nd-half"
           value="Non Drive Half"
           onChange={handleChange}
+          checked={inputs.pockets === "Non Drive Half"}
         />
         Non-Drive Half
       </label>
-      <label htmlFor="entry">
+      <label htmlFor="pockets">
         <input
           type="radio"
           name="pockets"
           id="nd-full"
           value="Non Drive Full"
           onChange={handleChange}
+          checked={inputs.pockets === "Non Drive Full"}
         />
         Non-Drive Full
       </label>
@@ -63,6 +73,7 @@ export default function PocketsMounting({ inputs, handleChange }) {
           id="velcro"
           value="Standard Velcro"
           onChange={handleChange}
+          checked={inputs.mounting === "Standard Velcro"}
         />
         Standard Velcro
       </label>
@@ -73,6 +84,7 @@ export default function PocketsMounting({ inputs, handleChange }) {
           id="laceup"
           value="Lace-Up"
           onChange={handleChange}
+          checked={inputs.mounting === "Lace-Up"}
         />
         Lace-Up
       </label>
@@ -83,6 +95,7 @@ export default function PocketsMounting({ inputs, handleChange }) {
           id="bolton"
           value="Bolt-On"
           onChange={handleChange}
+          checked={inputs.entry === "Bolt-On"}
         />
         Bolt-On
       </label>
@@ -93,6 +106,7 @@ export default function PocketsMounting({ inputs, handleChange }) {
           id="other"
           value="Other"
           onChange={handleChange}
+          checked={inputs.entry === "Other"}
         />
         Other
         {inputs.mounting === "Other" && (
@@ -106,6 +120,8 @@ export default function PocketsMounting({ inputs, handleChange }) {
           />
         )}
       </label>
+      <button onClick={() => setCurrentStep(currentStep - 1)}>Back</button>
+      <button onClick={() => setCurrentStep(currentStep + 1)}>Next</button>
     </>
   );
 }

@@ -43,6 +43,7 @@ export default function App() {
   };
 
   const [bagSize, setBagSize] = useState("Full Frame");
+  const [currentStep, setCurrentStep] = useState(1);
 
   const { inputs, handleChange, clearForm, resetForm } = useForm({
     name: "Name",
@@ -60,21 +61,45 @@ export default function App() {
     console.log({ bagSize, inputs, panelColors });
   }
 
+  const renderStep = () => {
+    switch (currentStep) {
+      case 1:
+        return (
+          <PanelColours
+            bagSize={bagSize}
+            setPanelColor={setPanelColor}
+            setCurrentStep={setCurrentStep}
+            currentStep={currentStep}
+          />
+        );
+      case 2:
+        return (
+          <PocketsMounting
+            inputs={inputs}
+            handleChange={handleChange}
+            setCurrentStep={setCurrentStep}
+            currentStep={currentStep}
+          />
+        );
+      case 3:
+        return (
+          <OrderInfo
+            inputs={inputs}
+            handleChange={handleChange}
+            setCurrentStep={setCurrentStep}
+            currentStep={currentStep}
+          />
+        );
+      default:
+        return null;
+    }
+  };
+
   return (
     <>
       <FormContainer onSubmit={handleSubmit}>
         <h1>Frame Bag Customizer</h1>
-        <PanelColours bagSize={bagSize} setPanelColor={setPanelColor} />
-        <PocketsMounting inputs={inputs} handleChange={handleChange} />
-        <OrderInfo inputs={inputs} handleChange={handleChange} />
-
-        <button>Submit</button>
-        <button type="button" onClick={clearForm}>
-          Clear Form
-        </button>
-        <button type="button" onClick={resetForm}>
-          Reset Form
-        </button>
+        {renderStep()}
       </FormContainer>
       <FlexContainer>
         <CanvasWrapper>

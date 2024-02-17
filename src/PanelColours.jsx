@@ -1,7 +1,12 @@
 /* eslint-disable react/prop-types */
 import ButtonRow from "./ButtonRow";
 
-export default function PanelColours({ bagSize, setPanelColor }) {
+export default function PanelColours({
+  bagSize,
+  setPanelColor,
+  setCurrentStep,
+  currentStep,
+}) {
   return (
     <>
       <h2>Panel Colours</h2>
@@ -33,6 +38,8 @@ export default function PanelColours({ bagSize, setPanelColor }) {
           <ButtonRow handleSelectColor={setPanelColor} panelIndex={7} />
         </>
       )}
+
+      <button onClick={() => setCurrentStep(currentStep + 1)}>Next</button>
     </>
   );
 }

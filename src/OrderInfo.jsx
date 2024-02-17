@@ -1,5 +1,10 @@
 /* eslint-disable react/prop-types */
-export default function OrderInfo({ inputs, handleChange }) {
+export default function OrderInfo({
+  inputs,
+  handleChange,
+  setCurrentStep,
+  currentStep,
+}) {
   return (
     <>
       <h2>Order Info</h2>
@@ -47,6 +52,8 @@ export default function OrderInfo({ inputs, handleChange }) {
           onChange={handleChange}
         />
       </label>
+      <button onClick={() => setCurrentStep(currentStep - 1)}>Back</button>
+      <button>Submit</button>
     </>
   );
 }
