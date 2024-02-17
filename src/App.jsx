@@ -4,7 +4,7 @@ import { OrbitControls } from "@react-three/drei";
 import Experience from "./Experience";
 import PanelColours from "./PanelColours";
 import BagButtonContainer from "./BagButtonContainer";
-import { defaultPanelColor } from "./constants";
+import { defaultPanelColor, panelColorOptions } from "./constants";
 import styled from "styled-components";
 import useForm from "./lib/useForm";
 import OrderInfo from "./OrderInfo";
@@ -29,14 +29,18 @@ const FlexContainer = styled.div`
 `;
 
 export default function App() {
-  const [panel1Color, setPanel1Color] = useState(defaultPanelColor);
-  const [panel2Color, setPanel2Color] = useState(defaultPanelColor);
-  const [panel3Color, setPanel3Color] = useState(defaultPanelColor);
-  const [panel4Color, setPanel4Color] = useState(defaultPanelColor);
-  const [panel5Color, setPanel5Color] = useState(defaultPanelColor);
-  const [panel6Color, setPanel6Color] = useState(defaultPanelColor);
-  const [panel7Color, setPanel7Color] = useState(defaultPanelColor);
-  const [panel8Color, setPanel8Color] = useState(defaultPanelColor);
+  const [panelColors, setPanelColors] = useState(
+    Array.from({ length: panelColorOptions.length }, () => defaultPanelColor)
+  );
+
+  const setPanelColor = (index, color) => {
+    setPanelColors((prevColors) => {
+      const newColors = [...prevColors];
+      newColors[index] = color;
+
+      return newColors;
+    });
+  };
 
   const [bagSize, setBagSize] = useState("Full Frame");
 
@@ -60,17 +64,7 @@ export default function App() {
     <>
       <FormContainer onSubmit={handleSubmit}>
         <h1>Frame Bag Customizer</h1>
-        <PanelColours
-          bagSize={bagSize}
-          setPanel1Color={setPanel1Color}
-          setPanel2Color={setPanel2Color}
-          setPanel3Color={setPanel3Color}
-          setPanel4Color={setPanel4Color}
-          setPanel5Color={setPanel5Color}
-          setPanel6Color={setPanel6Color}
-          setPanel7Color={setPanel7Color}
-          setPanel8Color={setPanel8Color}
-        />
+        <PanelColours bagSize={bagSize} setPanelColor={setPanelColor} />
         <PocketsMounting inputs={inputs} handleChange={handleChange} />
         <OrderInfo inputs={inputs} handleChange={handleChange} />
 
@@ -91,14 +85,14 @@ export default function App() {
           >
             <OrbitControls />
             <Experience
-              panel1Color={panel1Color}
-              panel2Color={panel2Color}
-              panel3Color={panel3Color}
-              panel4Color={panel4Color}
-              panel5Color={panel5Color}
-              panel6Color={panel6Color}
-              panel7Color={panel7Color}
-              panel8Color={panel8Color}
+              panel1Color={panelColors[0]}
+              panel2Color={panelColors[1]}
+              panel3Color={panelColors[2]}
+              panel4Color={panelColors[3]}
+              panel5Color={panelColors[4]}
+              panel6Color={panelColors[5]}
+              panel7Color={panelColors[6]}
+              panel8Color={panelColors[7]}
               bagSize={bagSize}
             />
           </Canvas>

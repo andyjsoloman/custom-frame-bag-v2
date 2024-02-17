@@ -1,46 +1,36 @@
 /* eslint-disable react/prop-types */
 import ButtonRow from "./ButtonRow";
 
-export default function PanelColours({
-  bagSize,
-  setPanel1Color,
-  setPanel2Color,
-  setPanel3Color,
-  setPanel4Color,
-  setPanel5Color,
-  setPanel6Color,
-  setPanel7Color,
-  setPanel8Color,
-}) {
+export default function PanelColours({ bagSize, setPanelColor }) {
   return (
     <>
       <h2>Panel Colours</h2>
       <h3>Section 1</h3>
-      <ButtonRow handleSelectColor={setPanel1Color} />
+      <ButtonRow handleSelectColor={setPanelColor} panelIndex={0} />
       <h3>Section 2</h3>
-      <ButtonRow handleSelectColor={setPanel2Color} />
+      <ButtonRow handleSelectColor={setPanelColor} panelIndex={1} />
       <h3>Section 3</h3>
-      <ButtonRow handleSelectColor={setPanel3Color} />
+      <ButtonRow handleSelectColor={setPanelColor} panelIndex={2} />
       <h3>Section 4</h3>
-      <ButtonRow handleSelectColor={setPanel4Color} />
+      <ButtonRow handleSelectColor={setPanelColor} panelIndex={3} />
       {bagSize === "Full Frame 2 Zip" && (
         <>
           <h3>Section 5</h3>
-          <ButtonRow handleSelectColor={setPanel5Color} />
+          <ButtonRow handleSelectColor={setPanelColor} panelIndex={4} />
           <h3>Section 6</h3>
-          <ButtonRow handleSelectColor={setPanel6Color} />
+          <ButtonRow handleSelectColor={setPanelColor} panelIndex={5} />
         </>
       )}
       {bagSize === "Double Whammy" && (
         <>
           <h3>Section 5</h3>
-          <ButtonRow handleSelectColor={setPanel5Color} />
+          <ButtonRow handleSelectColor={setPanelColor} panelIndex={4} />
           <h3>Section 6</h3>
-          <ButtonRow handleSelectColor={setPanel6Color} />
+          <ButtonRow handleSelectColor={setPanelColor} panelIndex={5} />
           <h3>Section 7</h3>
-          <ButtonRow handleSelectColor={setPanel7Color} />
+          <ButtonRow handleSelectColor={setPanelColor} panelIndex={6} />
           <h3>Section 8</h3>
-          <ButtonRow handleSelectColor={setPanel8Color} />
+          <ButtonRow handleSelectColor={setPanelColor} panelIndex={7} />
         </>
       )}
     </>

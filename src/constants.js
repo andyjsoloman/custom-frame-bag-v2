@@ -1,4 +1,4 @@
-export const panelColors = [
+export const panelColorOptions = [
   { label: "Gold", color: "#FDB516" },
   { label: "Fuschia", color: "#B6015A" },
   { label: "Lilac", color: "#90458D" },

@@ -1,16 +1,16 @@
 /* eslint-disable react/prop-types */
-import { panelColors } from "./constants";
+import { panelColorOptions } from "./constants";
 import ColorButton from "./ColorButton";
 
-export default function ButtonRow({ handleSelectColor }) {
+export default function ButtonRow({ handleSelectColor, panelIndex }) {
   return (
     <div>
-      {panelColors.map((button, index) => (
+      {panelColorOptions.map((button, index) => (
         <ColorButton
           key={index}
           label={button.label}
           color={button.color}
-          onClick={() => handleSelectColor(button.color)}
+          onClick={() => handleSelectColor(panelIndex, button.color)}
         />
       ))}
     </div>
