@@ -57,7 +57,7 @@ export default function App() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log({ bagSize, inputs, panel1: panel1Color, panel5: panel5Color });
+    console.log({ bagSize, inputs, panelColors });
   }
 
   return (
