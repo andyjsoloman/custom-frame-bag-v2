@@ -8,8 +8,9 @@ const Container = styled.div`
   display: flex;
   flex-direction: row;
   position: absolute;
-  bottom: 100px;
+  bottom: 150px;
   justify-content: space-between;
+  padding: 40px 60px;
 `;
 
 export default function BagButtonContainer({ handleSelectBag }) {

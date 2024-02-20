@@ -10,6 +10,24 @@ import useForm from "./lib/useForm";
 import OrderInfo from "./OrderInfo";
 import PocketsMounting from "./PocketsMounting";
 
+const NavHeader = styled.nav`
+  display: flex;
+  justify-content: center;
+  border: 2px solid coral;
+  margin: 20px 40px;
+`;
+
+const BodyWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const FormCard = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
 const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
@@ -18,14 +36,18 @@ const FormContainer = styled.form`
 
 const CanvasWrapper = styled.div`
   border: 2px solid green;
-  width: 1000px;
+  width: 800px;
+  min-height: 600px;
+  max-height: 800px;
+  align-items: center;
+
   /* display: flex;
   justify-content: center; */
 `;
 
 const FlexContainer = styled.div`
   display: flex;
-  justify-content: center;
+  /* justify-content: space-around; */
 `;
 
 export default function App() {
@@ -97,33 +119,38 @@ export default function App() {
 
   return (
     <>
-      <FormContainer onSubmit={handleSubmit}>
+      <NavHeader>
         <h1>Frame Bag Customizer</h1>
-        {renderStep()}
-      </FormContainer>
-      <FlexContainer>
-        <CanvasWrapper>
-          <Canvas
-            shadows
-            orthographic
-            camera={{ fov: 100, zoom: 100, position: [0, 2, 8] }}
-          >
-            <OrbitControls />
-            <Experience
-              panel1Color={panelColors[0]}
-              panel2Color={panelColors[1]}
-              panel3Color={panelColors[2]}
-              panel4Color={panelColors[3]}
-              panel5Color={panelColors[4]}
-              panel6Color={panelColors[5]}
-              panel7Color={panelColors[6]}
-              panel8Color={panelColors[7]}
-              bagSize={bagSize}
-            />
-          </Canvas>
-        </CanvasWrapper>
-        <BagButtonContainer handleSelectBag={setBagSize} />
-      </FlexContainer>
+      </NavHeader>
+
+      <BodyWrapper>
+        <FormCard>
+          <FormContainer onSubmit={handleSubmit}>{renderStep()}</FormContainer>
+        </FormCard>
+        <FlexContainer>
+          <CanvasWrapper>
+            <Canvas
+              shadows
+              orthographic
+              camera={{ fov: 100, zoom: 100, position: [0, 2, 8] }}
+            >
+              <OrbitControls />
+              <Experience
+                panel1Color={panelColors[0]}
+                panel2Color={panelColors[1]}
+                panel3Color={panelColors[2]}
+                panel4Color={panelColors[3]}
+                panel5Color={panelColors[4]}
+                panel6Color={panelColors[5]}
+                panel7Color={panelColors[6]}
+                panel8Color={panelColors[7]}
+                bagSize={bagSize}
+              />
+            </Canvas>
+          </CanvasWrapper>
+          <BagButtonContainer handleSelectBag={setBagSize} />
+        </FlexContainer>
+      </BodyWrapper>
     </>
   );
 }
