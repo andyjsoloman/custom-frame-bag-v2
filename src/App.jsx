@@ -23,9 +23,19 @@ const BodyWrapper = styled.div`
   align-items: center;
 `;
 
+const BagButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
 const FormCard = styled.div`
   display: flex;
-  align-items: center;
+  /* align-items: center; */
+  background-color: #f4f2e6;
+  padding: 20px;
+  max-height: 60vh;
+
+  flex-basis: 500px;
 `;
 
 const FormContainer = styled.form`
@@ -36,10 +46,10 @@ const FormContainer = styled.form`
 
 const CanvasWrapper = styled.div`
   border: 2px solid green;
-  width: 800px;
-  min-height: 600px;
-  max-height: 800px;
+  width: 600px;
+  min-height: 500px;
   align-items: center;
+  margin: 20px 40px;
 
   /* display: flex;
   justify-content: center; */
@@ -122,7 +132,9 @@ export default function App() {
       <NavHeader>
         <h1>Frame Bag Customizer</h1>
       </NavHeader>
-
+      <BagButtonWrapper>
+        <BagButtonContainer handleSelectBag={setBagSize} />
+      </BagButtonWrapper>
       <BodyWrapper>
         <FormCard>
           <FormContainer onSubmit={handleSubmit}>{renderStep()}</FormContainer>
@@ -132,7 +144,7 @@ export default function App() {
             <Canvas
               shadows
               orthographic
-              camera={{ fov: 100, zoom: 100, position: [0, 2, 8] }}
+              camera={{ fov: 100, zoom: 80, position: [0, 2, 8] }}
             >
               <OrbitControls />
               <Experience
@@ -148,7 +160,6 @@ export default function App() {
               />
             </Canvas>
           </CanvasWrapper>
-          <BagButtonContainer handleSelectBag={setBagSize} />
         </FlexContainer>
       </BodyWrapper>
     </>

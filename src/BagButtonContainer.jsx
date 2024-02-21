@@ -6,11 +6,13 @@ import BagButton from "./BagButton";
 const Container = styled.div`
   width: 800px;
   display: flex;
-  flex-direction: row;
-  position: absolute;
+  /* flex-direction: row; */
+  /* position: absolute; */
   bottom: 150px;
+  align-items: center;
   justify-content: space-between;
   padding: 40px 60px;
+  border: 2px solid red;
 `;
 
 export default function BagButtonContainer({ handleSelectBag }) {

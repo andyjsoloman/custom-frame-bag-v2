@@ -14,8 +14,6 @@ body,
   /* overflow: hidden; */
   display: flex;
   display: block;
-  justify-content: center;
-  /* align-items: center; */
 
   background: hsl(188, 45, 98);
 }

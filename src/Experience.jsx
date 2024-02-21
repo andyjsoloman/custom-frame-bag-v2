@@ -23,12 +23,12 @@ export default function Experience({
 }) {
   const directionalLight = useRef();
   const directionalLight2 = useRef();
-  useHelper(directionalLight, THREE.DirectionalLightHelper, 1);
-  useHelper(directionalLight2, THREE.DirectionalLightHelper, 1);
+  // useHelper(directionalLight, THREE.DirectionalLightHelper, 1);
+  // useHelper(directionalLight2, THREE.DirectionalLightHelper, 1);
 
   return (
     <>
-      <Perf position="top-left" />
+      {/* <Perf position="top-left" /> */}
       <ContactShadows
         position={[0, -2.49, 0]}
         scale={10}
@@ -54,7 +54,7 @@ export default function Experience({
       {bagSize === "Full Frame" && (
         <FullFrame
           scale={0.1}
-          position={[-2, -1, 0]}
+          position={[-2.5, -1, 0]}
           panel1Color={panel1Color}
           panel2Color={panel2Color}
           panel3Color={panel3Color}
@@ -64,7 +64,7 @@ export default function Experience({
       {bagSize === "Half Frame" && (
         <HalfFrame
           scale={0.1}
-          position={[-2, -1, 0]}
+          position={[-2.5, -1, 0]}
           panel1Color={panel1Color}
           panel2Color={panel2Color}
           panel3Color={panel3Color}
@@ -74,7 +74,7 @@ export default function Experience({
       {bagSize === "Double Whammy" && (
         <DoubleWhammy
           scale={0.1}
-          position={[-2, -1, 0]}
+          position={[-2.5, -1, 0]}
           panel1Color={panel1Color}
           panel2Color={panel2Color}
           panel3Color={panel3Color}
@@ -88,7 +88,7 @@ export default function Experience({
       {bagSize === "Full Frame 2 Zip" && (
         <FullFrame2Zip
           scale={0.1}
-          position={[-2, -1, 0]}
+          position={[-2.5, -1, 0]}
           panel1Color={panel1Color}
           panel2Color={panel2Color}
           panel3Color={panel3Color}
