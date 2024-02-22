@@ -23,6 +23,7 @@ export default function Experience({
 }) {
   const directionalLight = useRef();
   const directionalLight2 = useRef();
+
   // useHelper(directionalLight, THREE.DirectionalLightHelper, 1);
   // useHelper(directionalLight2, THREE.DirectionalLightHelper, 1);
 

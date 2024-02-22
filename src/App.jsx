@@ -9,6 +9,7 @@ import styled from "styled-components";
 import useForm from "./lib/useForm";
 import OrderInfo from "./OrderInfo";
 import PocketsMounting from "./PocketsMounting";
+import Footer from "./Footer";
 
 const NavHeader = styled.nav`
   display: flex;
@@ -63,6 +64,11 @@ const CanvasWrapper = styled.div`
 const FlexContainer = styled.div`
   display: flex;
   /* justify-content: space-around; */
+`;
+
+const FooterWrapper = styled.div`
+  display: flex;
+  justify-content: center;
 `;
 
 export default function App() {
@@ -167,6 +173,9 @@ export default function App() {
           </CanvasWrapper>
         </FlexContainer>
       </BodyWrapper>
+      <FooterWrapper>
+        <Footer bagSize={bagSize} />
+      </FooterWrapper>
     </>
   );
 }
