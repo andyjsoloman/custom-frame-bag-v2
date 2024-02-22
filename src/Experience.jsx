@@ -2,8 +2,8 @@
 /* eslint-disable react/no-unknown-property */
 import { ContactShadows, useHelper } from "@react-three/drei";
 import { useRef } from "react";
-import * as THREE from "three";
-import { Perf } from "r3f-perf";
+// import * as THREE from "three";
+// import { Perf } from "r3f-perf";
 
 import FullFrame from "./FullFrame";
 import HalfFrame from "./HalfFrame";

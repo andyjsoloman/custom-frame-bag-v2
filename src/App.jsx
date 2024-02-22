@@ -13,8 +13,8 @@ import PocketsMounting from "./PocketsMounting";
 const NavHeader = styled.nav`
   display: flex;
   justify-content: center;
-  border: 2px solid coral;
-  margin: 20px 40px;
+
+  margin: 40px;
 `;
 
 const BodyWrapper = styled.div`
@@ -31,25 +31,30 @@ const BagButtonWrapper = styled.div`
 const FormCard = styled.div`
   display: flex;
   /* align-items: center; */
-  background-color: #f4f2e6;
+  background-color: #fff;
   padding: 20px;
-  max-height: 60vh;
+  height: 500px;
 
-  flex-basis: 500px;
+  /* overflow: scroll; */
+  border-radius: 20px;
+  border: 2px solid grey;
+  min-width: 600px;
+  margin: 20px 40px 20px 20px;
 `;
 
 const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
-  border: 2px solid red;
 `;
 
 const CanvasWrapper = styled.div`
-  border: 2px solid green;
+  border: 2px solid grey;
   width: 600px;
   min-height: 500px;
   align-items: center;
-  margin: 20px 40px;
+  margin: 20px 40px 20px 20px;
+  background-color: #fff;
+  border-radius: 20px;
 
   /* display: flex;
   justify-content: center; */

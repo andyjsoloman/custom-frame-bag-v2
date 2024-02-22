@@ -12,7 +12,10 @@ const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 40px 60px;
-  border: 2px solid red;
+  border: 2px solid grey;
+  border-radius: 20px;
+  background-color: #fff;
+  margin-bottom: 20px;
 `;
 
 export default function BagButtonContainer({ handleSelectBag }) {
