@@ -174,7 +174,7 @@ export default function App() {
         </FlexContainer>
       </BodyWrapper>
       <FooterWrapper>
-        <Footer bagSize={bagSize} />
+        <Footer bagSize={bagSize} inputs={inputs} />
       </FooterWrapper>
     </>
   );

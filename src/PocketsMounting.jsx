@@ -65,6 +65,17 @@ export default function PocketsMounting({
         />
         Non-Drive Full
       </label>
+      <label htmlFor="pockets">
+        <input
+          type="radio"
+          name="pockets"
+          id="none"
+          value="None"
+          onChange={handleChange}
+          checked={inputs.pockets === "None"}
+        />
+        None
+      </label>
       <h3>Mounting</h3>
       <label htmlFor="mounting">
         <input
@@ -95,7 +106,7 @@ export default function PocketsMounting({
           id="bolton"
           value="Bolt-On"
           onChange={handleChange}
-          checked={inputs.entry === "Bolt-On"}
+          checked={inputs.mounting === "Bolt-On"}
         />
         Bolt-On
       </label>
@@ -106,7 +117,7 @@ export default function PocketsMounting({
           id="other"
           value="Other"
           onChange={handleChange}
-          checked={inputs.entry === "Other"}
+          checked={inputs.mounting === "Other"}
         />
         Other
         {inputs.mounting === "Other" && (
