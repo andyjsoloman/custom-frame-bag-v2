@@ -62,7 +62,6 @@ export default function Price({ bagSize, inputs }) {
       inputs.pockets === "Non Drive Full"
     ) {
       setPocketChoice(true);
-      console.log("Pockets");
     } else if (inputs.pockets === "None") {
       setPocketChoice(false);
     }

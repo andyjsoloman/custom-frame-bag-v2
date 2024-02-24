@@ -100,7 +100,7 @@ export default function App() {
   });
 
   function handleSubmit(e) {
-    e.preventDefault();
+    // e.preventDefault();
     console.log({ bagSize, inputs, panelColors });
   }
 
@@ -174,7 +174,7 @@ export default function App() {
         </FlexContainer>
       </BodyWrapper>
       <FooterWrapper>
-        <Footer bagSize={bagSize} inputs={inputs} />
+        <Footer bagSize={bagSize} inputs={inputs} handleSubmit={handleSubmit} />
       </FooterWrapper>
     </>
   );

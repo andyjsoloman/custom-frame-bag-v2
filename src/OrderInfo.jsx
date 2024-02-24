@@ -53,7 +53,6 @@ export default function OrderInfo({
         />
       </label>
       <button onClick={() => setCurrentStep(currentStep - 1)}>Back</button>
-      <button>Submit</button>
     </>
   );
 }
