@@ -33,45 +33,37 @@ export default function Price({ bagSize, inputs }) {
   }, [bagSize, hasDivider, hasBoltOn, pocketChoice]);
 
   useEffect(() => {
-    if (inputs.entry === "Two Main Zippers w/Divider" && !hasDivider) {
-      setBagPrice((prevPrice) => prevPrice + 50);
+    if (inputs.entry === "Two Main Zippers w/Divider") {
       setHasDivider(true);
     } else if (
-      (inputs.entry === "One Main Zipper" ||
-        inputs.entry === "Two Main Zippers" ||
-        inputs.entry === "Roll Top") &&
-      hasDivider
+      inputs.entry === "One Main Zipper" ||
+      inputs.entry === "Two Main Zippers" ||
+      inputs.entry === "Roll Top"
     ) {
-      setBagPrice((prevPrice) => prevPrice - 50);
       setHasDivider(false);
     }
   }, [inputs, hasDivider, bagSize]);
 
   useEffect(() => {
-    if (inputs.mounting === "Bolt-On" && !hasBoltOn) {
-      setBagPrice((prevPrice) => prevPrice + 30);
+    if (inputs.mounting === "Bolt-On") {
       setHasBoltOn(true);
     } else if (
-      (inputs.mounting === "Standard Velcro" ||
-        inputs.mounting === "Lace-Up" ||
-        inputs.mounting === "Other") &&
-      hasBoltOn
+      inputs.mounting === "Standard Velcro" ||
+      inputs.mounting === "Lace-Up" ||
+      inputs.mounting === "Other"
     ) {
-      setBagPrice((prevPrice) => prevPrice - 30);
       setHasBoltOn(false);
     }
   }, [inputs, hasBoltOn, bagSize]);
 
   useEffect(() => {
-    if (inputs.pockets === "Non Drive Half" && !pocketChoice) {
-      setBagPrice((prevPrice) => prevPrice + 30);
+    if (
+      inputs.pockets === "Non Drive Half" ||
+      inputs.pockets === "Non Drive Full"
+    ) {
       setPocketChoice(true);
       console.log("Pockets");
-    } else if (inputs.pockets === "Non Drive Full" && !pocketChoice) {
-      setBagPrice((prevPrice) => prevPrice + 30);
-      setPocketChoice(true);
-    } else if (inputs.pockets === "None" && pocketChoice) {
-      setBagPrice((prevPrice) => prevPrice - 30);
+    } else if (inputs.pockets === "None") {
       setPocketChoice(false);
     }
   }, [inputs, pocketChoice, bagSize]);
