@@ -8,16 +8,29 @@ export default function Price({ bagSize, inputs }) {
   const [pocketChoice, setPocketChoice] = useState(false);
 
   useEffect(() => {
+    let basePrice = 0;
     if (bagSize === "Half Frame") {
-      setBagPrice(250);
+      basePrice += 250;
     } else if (bagSize === "Full Frame") {
-      setBagPrice(275);
+      basePrice += 275;
     } else if (bagSize === "Full Frame 2 Zip") {
-      setBagPrice(325);
+      basePrice += 325;
     } else if (bagSize === "Double Whammy") {
-      setBagPrice(400);
+      basePrice += 400;
     }
-  }, [bagSize]);
+    if (hasDivider) {
+      basePrice += 50;
+    }
+
+    if (hasBoltOn) {
+      basePrice += 30;
+    }
+
+    if (pocketChoice) {
+      basePrice += 30;
+    }
+    setBagPrice(basePrice);
+  }, [bagSize, hasDivider, hasBoltOn, pocketChoice]);
 
   useEffect(() => {
     if (inputs.entry === "Two Main Zippers w/Divider" && !hasDivider) {
@@ -32,7 +45,7 @@ export default function Price({ bagSize, inputs }) {
       setBagPrice((prevPrice) => prevPrice - 50);
       setHasDivider(false);
     }
-  }, [inputs, hasDivider]);
+  }, [inputs, hasDivider, bagSize]);
 
   useEffect(() => {
     if (inputs.mounting === "Bolt-On" && !hasBoltOn) {
@@ -47,12 +60,13 @@ export default function Price({ bagSize, inputs }) {
       setBagPrice((prevPrice) => prevPrice - 30);
       setHasBoltOn(false);
     }
-  }, [inputs, hasBoltOn]);
+  }, [inputs, hasBoltOn, bagSize]);
 
   useEffect(() => {
     if (inputs.pockets === "Non Drive Half" && !pocketChoice) {
       setBagPrice((prevPrice) => prevPrice + 30);
       setPocketChoice(true);
+      console.log("Pockets");
     } else if (inputs.pockets === "Non Drive Full" && !pocketChoice) {
       setBagPrice((prevPrice) => prevPrice + 30);
       setPocketChoice(true);
@@ -60,7 +74,7 @@ export default function Price({ bagSize, inputs }) {
       setBagPrice((prevPrice) => prevPrice - 30);
       setPocketChoice(false);
     }
-  }, [inputs, pocketChoice]);
+  }, [inputs, pocketChoice, bagSize]);
 
   return (
     <>

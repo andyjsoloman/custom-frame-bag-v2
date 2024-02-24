@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import Price from "./Price";
 import Progress from "./Progress";
 import Submit from "./Sumbit";
