@@ -2,6 +2,7 @@ import { useState } from "react";
 
 export default function useForm(initial = {}) {
   const [inputs, setInputs] = useState(initial);
+  const [isFormValid, setIsFormValid] = useState(false);
 
   function handleChange(e) {
     setInputs({
@@ -9,6 +10,8 @@ export default function useForm(initial = {}) {
       ...inputs,
       [e.target.name]: e.target.value,
     });
+    const isValid = Object.values(inputs).every((field) => field.trim() !== "");
+    setIsFormValid(true);
   }
 
   function resetForm() {
@@ -27,5 +30,6 @@ export default function useForm(initial = {}) {
     handleChange,
     resetForm,
     clearForm,
+    isFormValid,
   };
 }

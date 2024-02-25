@@ -88,7 +88,7 @@ export default function App() {
   const [bagSize, setBagSize] = useState("Full Frame");
   const [currentStep, setCurrentStep] = useState(1);
 
-  const { inputs, handleChange, clearForm, resetForm } = useForm({
+  const { inputs, handleChange, clearForm, resetForm, isFormValid } = useForm({
     name: "Name",
     bike: "Bike",
     bikeSize: "Bike Size",
@@ -100,7 +100,11 @@ export default function App() {
   });
 
   function handleSubmit(e) {
-    // e.preventDefault();
+    e.preventDefault();
+    if (!isFormValid) {
+      alert("Please fill out all fields before submitting.");
+      return;
+    }
     console.log({ bagSize, inputs, panelColors });
   }
 
@@ -148,7 +152,9 @@ export default function App() {
       </BagButtonWrapper>
       <BodyWrapper>
         <FormCard>
-          <FormContainer onSubmit={handleSubmit}>{renderStep()}</FormContainer>
+          <FormContainer id="frameBagForm" onSubmit={handleSubmit}>
+            {renderStep()}
+          </FormContainer>
         </FormCard>
         <FlexContainer>
           <CanvasWrapper>
@@ -174,7 +180,7 @@ export default function App() {
         </FlexContainer>
       </BodyWrapper>
       <FooterWrapper>
-        <Footer bagSize={bagSize} inputs={inputs} handleSubmit={handleSubmit} />
+        <Footer bagSize={bagSize} inputs={inputs} />
       </FooterWrapper>
     </>
   );
