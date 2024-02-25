@@ -10,8 +10,11 @@ export default function useForm(initial = {}) {
       ...inputs,
       [e.target.name]: e.target.value,
     });
-    const isValid = Object.values(inputs).every((field) => field.trim() !== "");
-    setIsFormValid(true);
+    const isValid = Object.values(inputs).every((field) => {
+      return field.trim() !== "";
+    });
+    setIsFormValid(isValid);
+    console.log(isFormValid);
   }
 
   function resetForm() {

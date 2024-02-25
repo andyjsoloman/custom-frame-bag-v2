@@ -15,7 +15,7 @@ export default function OrderInfo({
           id="name"
           name="name"
           placeholder="Name"
-          value={inputs.name}
+          //   value={inputs.name}
           onChange={handleChange}
         />
       </label>
@@ -26,7 +26,7 @@ export default function OrderInfo({
           id="bike"
           name="bike"
           placeholder="Bike"
-          value={inputs.bike}
+          //   value={inputs.bike}
           onChange={handleChange}
         />
       </label>
@@ -37,7 +37,7 @@ export default function OrderInfo({
           id="bikeSize"
           name="bikeSize"
           placeholder="Bike Size"
-          value={inputs.bikeSize}
+          //   value={inputs.bikeSize}
           onChange={handleChange}
         />
       </label>
@@ -48,7 +48,7 @@ export default function OrderInfo({
           id="email"
           name="email"
           placeholder="Email"
-          value={inputs.email}
+          //   value={inputs.email}
           onChange={handleChange}
         />
       </label>
