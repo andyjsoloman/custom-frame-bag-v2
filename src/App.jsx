@@ -89,10 +89,10 @@ export default function App() {
   const [currentStep, setCurrentStep] = useState(1);
 
   const { inputs, handleChange, clearForm, resetForm, isFormValid } = useForm({
-    name: "Name",
-    bike: "Bike",
-    bikeSize: "Bike Size",
-    email: "Email",
+    name: "",
+    bike: "",
+    bikeSize: "",
+    email: "",
     entry: "",
     pockets: "",
     mounting: "",
