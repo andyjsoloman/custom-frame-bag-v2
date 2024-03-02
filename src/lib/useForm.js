@@ -1,19 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function useForm(initial = {}) {
   const [inputs, setInputs] = useState(initial);
   const [isFormValid, setIsFormValid] = useState(false);
 
-  function handleChange(e) {
-    setInputs({
-      //Copy the existing state
-      ...inputs,
-      [e.target.name]: e.target.value,
-    });
-    //Working logic to check if all form items are filled out BUT remove mountingDetails from consideration if 'Other is not selected
-    //Still seems to be a delay on updating state (select other then change mind, this logic has to run 1-2 times befroe state is updated)
-    //Still need to check if panelColours are valid
-    //Also does not prompt as to what info is missing
+  useEffect(() => {
+    // Form Validation - Are all inputs filled out
     if (inputs.mounting !== "Other") {
       const editInputs = { ...inputs };
       delete editInputs.mountingDetails;
@@ -29,6 +21,14 @@ export default function useForm(initial = {}) {
       setIsFormValid(isFormFilledOut);
     }
     console.log(isFormValid);
+  }, [inputs]);
+
+  function handleChange(e) {
+    setInputs({
+      //Copy the existing state
+      ...inputs,
+      [e.target.name]: e.target.value,
+    });
   }
 
   function resetForm() {
