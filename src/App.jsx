@@ -108,7 +108,6 @@ export default function App() {
   function handleSubmit(e) {
     e.preventDefault();
     if (!isFormValid) {
-      console.log("naah");
       setIsDialogOpen(true);
       return;
     }
@@ -189,9 +188,12 @@ export default function App() {
       <FooterWrapper>
         <Footer bagSize={bagSize} inputs={inputs} />
       </FooterWrapper>
-      <Modal isOpen={isDialogOpen} onClose={closeDialog}>
-        Please Complete All Required Inputs
-      </Modal>
+      <Modal
+        isOpen={isDialogOpen}
+        onClose={closeDialog}
+        inputs={inputs}
+        isFormValid={isFormValid}
+      />
     </>
   );
 }

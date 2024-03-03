@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { createPortal } from "react-dom";
 import styled from "styled-components";
 
@@ -23,9 +23,22 @@ const Dialog = styled.dialog`
   z-index: 1000;
 `;
 
-export default function Modal({ isOpen, onClose, children }) {
+export default function Modal({ isOpen, onClose, children, inputs }) {
   const [focusedElementBeforeModal, setFocusedElementBeforeModal] =
     useState(null);
+
+  const emptyKeys = useMemo(
+    () =>
+      Object.keys(inputs)
+        .filter((key) => inputs[key] === "" && key !== "mountingDetails")
+        .map((key) => (key === "bikeSize" ? "Bike Size" : key))
+        .map((key) =>
+          key
+            .toLowerCase()
+            .replace(/\b\w/g, (firstChar) => firstChar.toUpperCase())
+        ),
+    [inputs]
+  );
 
   useEffect(() => {
     const handleEscape = (event) => {
@@ -70,11 +83,22 @@ export default function Modal({ isOpen, onClose, children }) {
               aria-labelledby="dialog-title"
               className="modal-dialog"
             >
-              <h2 id="dialog-title">Modal Dialog</h2>
+              <h2 id="dialog-title">Hey!</h2>
+
+              <div className="modal-content">
+                Please complete all required inputs. We're missing the following
+                info:
+              </div>
+              {emptyKeys.length > 0 && (
+                <ul>
+                  {emptyKeys.map((i) => (
+                    <li key={i}>{i}</li>
+                  ))}
+                </ul>
+              )}
               <button onClick={onClose} className="close-button">
                 Ok
               </button>
-              <div className="modal-content">{children}</div>
             </Dialog>
           </>,
           document.body
