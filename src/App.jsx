@@ -10,6 +10,7 @@ import useForm from "./lib/useForm";
 import OrderInfo from "./OrderInfo";
 import PocketsMounting from "./PocketsMounting";
 import Footer from "./Footer";
+import Modal from "./Modal";
 
 const NavHeader = styled.nav`
   display: flex;
@@ -87,6 +88,11 @@ export default function App() {
 
   const [bagSize, setBagSize] = useState("Full Frame");
   const [currentStep, setCurrentStep] = useState(1);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+  const closeDialog = () => {
+    setIsDialogOpen(false);
+  };
 
   const { inputs, handleChange, clearForm, resetForm, isFormValid } = useForm({
     name: "",
@@ -102,7 +108,8 @@ export default function App() {
   function handleSubmit(e) {
     e.preventDefault();
     if (!isFormValid) {
-      alert("Please fill out all fields before submitting.");
+      console.log("naah");
+      setIsDialogOpen(true);
       return;
     }
     console.log({ bagSize, inputs, panelColors });
@@ -182,6 +189,9 @@ export default function App() {
       <FooterWrapper>
         <Footer bagSize={bagSize} inputs={inputs} />
       </FooterWrapper>
+      <Modal isOpen={isDialogOpen} onClose={closeDialog}>
+        Please Complete All Required Inputs
+      </Modal>
     </>
   );
 }
