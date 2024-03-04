@@ -193,6 +193,8 @@ export default function App() {
         onClose={closeDialog}
         inputs={inputs}
         isFormValid={isFormValid}
+        panelColors={panelColors}
+        bagSize={bagSize}
       />
     </>
   );

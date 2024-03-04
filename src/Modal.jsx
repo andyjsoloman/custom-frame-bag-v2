@@ -23,9 +23,43 @@ const Dialog = styled.dialog`
   z-index: 1000;
 `;
 
-export default function Modal({ isOpen, onClose, children, inputs }) {
+export default function Modal({
+  isOpen,
+  onClose,
+  children,
+  inputs,
+  panelColors,
+  bagSize,
+}) {
   const [focusedElementBeforeModal, setFocusedElementBeforeModal] =
     useState(null);
+
+  const adjustPanelColors = (bagSize, panelColors) => {
+    let adjustedColors;
+
+    if (bagSize === "Full Frame" || bagSize === "Half Frame") {
+      adjustedColors = panelColors.slice(0, 4);
+    } else if (bagSize === "Double Whammy") {
+      adjustedColors = panelColors.slice(0, 8);
+    } else if (bagSize === "Full Frame 2 Zip") {
+      adjustedColors = panelColors.slice(0, 6);
+    } else {
+      adjustedColors = panelColors; // Default case
+    }
+
+    // Map over the adjustedColors array and replace '#FFF' values
+    const removeChosenColors = adjustedColors.map((color, index) =>
+      color === "#FFF" ? `Panel Colour for Section ${index + 1}` : null
+    );
+    const emptyColors = removeChosenColors.filter((color) => color !== null);
+
+    return emptyColors;
+  };
+
+  const emptyPanelColors = useMemo(
+    () => adjustPanelColors(bagSize, panelColors),
+    [bagSize, panelColors]
+  );
 
   const emptyKeys = useMemo(
     () =>
@@ -86,12 +120,19 @@ export default function Modal({ isOpen, onClose, children, inputs }) {
               <h2 id="dialog-title">Hey!</h2>
 
               <div className="modal-content">
-                Please complete all required inputs. We're missing the following
-                info:
+                Please complete all required inputs. We&apos;re missing the
+                following info:
               </div>
               {emptyKeys.length > 0 && (
                 <ul>
                   {emptyKeys.map((i) => (
+                    <li key={i}>{i}</li>
+                  ))}
+                </ul>
+              )}
+              {emptyPanelColors.length > 0 && (
+                <ul>
+                  {emptyPanelColors.map((i) => (
                     <li key={i}>{i}</li>
                   ))}
                 </ul>
