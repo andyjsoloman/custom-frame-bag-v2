@@ -13,7 +13,7 @@ const Button = styled.button`
   gap: 5px;
   border: none;
   border-radius: 8px;
-  background: #fff7ed;
+  background: #dce6e7;
 
   /* 3D Button */
   box-shadow: 1px -2px 1px 0px rgba(0, 0, 0, 0.25) inset,
@@ -32,13 +32,13 @@ const Button = styled.button`
 `;
 
 export default function BagButton({ onClick, label, bagSize }) {
-  const [fillColor, setFillColor] = useState("#F7F0E8");
+  const [fillColor, setFillColor] = useState("#D8D8D8");
 
   useEffect(() => {
     if (bagSize === label) {
       setFillColor("#8DF98B");
     } else {
-      setFillColor("#F7F0E8");
+      setFillColor("#D8D8D8");
     }
   }, [bagSize, label]);
 

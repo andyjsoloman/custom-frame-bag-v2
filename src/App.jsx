@@ -33,7 +33,7 @@ const BagButtonWrapper = styled.div`
 const FormCard = styled.div`
   display: flex;
   /* align-items: center; */
-  background-color: #fff;
+  background-color: #f0f8f9;
   padding: 20px;
   height: 500px;
 
@@ -55,7 +55,7 @@ const CanvasWrapper = styled.div`
   min-height: 500px;
   align-items: center;
   margin: 20px 40px 20px 20px;
-  background-color: #fff;
+  background-color: #f0f8f9;
   border-radius: 20px;
 
   /* display: flex;
@@ -65,11 +65,6 @@ const CanvasWrapper = styled.div`
 const FlexContainer = styled.div`
   display: flex;
   /* justify-content: space-around; */
-`;
-
-const FooterWrapper = styled.div`
-  display: flex;
-  justify-content: center;
 `;
 
 export default function App() {
@@ -185,9 +180,9 @@ export default function App() {
           </CanvasWrapper>
         </FlexContainer>
       </BodyWrapper>
-      <FooterWrapper>
-        <Footer bagSize={bagSize} inputs={inputs} />
-      </FooterWrapper>
+
+      <Footer bagSize={bagSize} inputs={inputs} />
+
       <Modal
         isOpen={isDialogOpen}
         onClose={closeDialog}

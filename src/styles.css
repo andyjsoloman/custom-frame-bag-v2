@@ -14,7 +14,8 @@ body,
   display: flex;
   display: block;
 
-  background: #fae9d4;
+  /* background: #fae9d4; */
+  background: #89cad4;
 }
 .visually-hidden {
   position: absolute;
