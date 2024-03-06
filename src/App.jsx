@@ -154,7 +154,7 @@ export default function App() {
         <h1>Frame Bag Customizer</h1>
       </NavHeader>
       <BagButtonWrapper>
-        <BagButtonContainer handleSelectBag={setBagSize} />
+        <BagButtonContainer handleSelectBag={setBagSize} bagSize={bagSize} />
       </BagButtonWrapper>
       <BodyWrapper>
         <FormCard>
