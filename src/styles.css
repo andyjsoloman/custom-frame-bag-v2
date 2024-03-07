@@ -15,7 +15,7 @@ body,
   display: block;
 
   /* background: #fae9d4; */
-  background: #89cad4;
+  background: #6eabb4;
 }
 .visually-hidden {
   position: absolute;
@@ -26,6 +26,11 @@ body,
   margin: -1px;
   padding: 0;
   border: 0;
+}
+
+h1 {
+  font-family: "Fjalla One", "Modak";
+  font-size: 3rem;
 }
 
 /* hsl(188, 45, 98) */

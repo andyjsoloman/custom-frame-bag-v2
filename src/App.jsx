@@ -71,13 +71,22 @@ export default function App() {
   const [panelColors, setPanelColors] = useState(
     Array.from({ length: panelColorOptions.length }, () => defaultPanelColor)
   );
+  const [panelColorNames, setPanelColorNames] = useState(
+    Array.from({ length: panelColorOptions.length }, () => null)
+  );
 
-  const setPanelColor = (index, color) => {
+  const setPanelColor = (index, color, label) => {
     setPanelColors((prevColors) => {
       const newColors = [...prevColors];
       newColors[index] = color;
 
       return newColors;
+    });
+    setPanelColorNames((prevColorNames) => {
+      const newColorNames = [...prevColorNames];
+      newColorNames[index] = label;
+
+      return newColorNames;
     });
   };
 
@@ -106,7 +115,7 @@ export default function App() {
       setIsDialogOpen(true);
       return;
     }
-    console.log({ bagSize, inputs, panelColors });
+    console.log({ bagSize, inputs, panelColorNames });
   }
 
   const renderStep = () => {
@@ -118,6 +127,8 @@ export default function App() {
             setPanelColor={setPanelColor}
             setCurrentStep={setCurrentStep}
             currentStep={currentStep}
+            panelColor={panelColors}
+            panelColorNames={panelColorNames}
           />
         );
       case 2:

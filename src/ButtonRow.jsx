@@ -15,7 +15,9 @@ export default function ButtonRow({ handleSelectColor, panelIndex }) {
           key={index}
           label={button.label}
           color={button.color}
-          onClick={() => handleSelectColor(panelIndex, button.color)}
+          onClick={() =>
+            handleSelectColor(panelIndex, button.color, button.label)
+          }
         />
       ))}
     </ButtonDiv>
