@@ -98,7 +98,7 @@ export default function App() {
     setIsDialogOpen(false);
   };
 
-  const { inputs, handleChange, clearForm, resetForm, isFormValid } = useForm({
+  const { inputs, handleChange, isFormValid } = useForm({
     name: "",
     bike: "",
     bikeSize: "",

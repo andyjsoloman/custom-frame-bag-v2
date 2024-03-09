@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState, useEffect, useMemo } from "react";
 import { createPortal } from "react-dom";
 import styled from "styled-components";
@@ -9,7 +10,7 @@ const ModalOverlay = styled.div`
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
-  z-index: 999; /* Ensure the overlay is below the modal */
+  z-index: 999;
 `;
 
 const Dialog = styled.dialog`
@@ -34,9 +35,9 @@ export default function Modal({
   const [focusedElementBeforeModal, setFocusedElementBeforeModal] =
     useState(null);
 
+  //Checking which panel colours are unselected depending on bagSize
   const adjustPanelColors = (bagSize, panelColors) => {
     let adjustedColors;
-
     if (bagSize === "Full Frame" || bagSize === "Half Frame") {
       adjustedColors = panelColors.slice(0, 4);
     } else if (bagSize === "Double Whammy") {
@@ -46,7 +47,6 @@ export default function Modal({
     } else {
       adjustedColors = panelColors; // Default case
     }
-
     // Map over the adjustedColors array and replace '#FFF' values
     const removeChosenColors = adjustedColors.map((color, index) =>
       color === "#FFF" ? `Panel Colour for Section ${index + 1}` : null
@@ -61,6 +61,7 @@ export default function Modal({
     [bagSize, panelColors]
   );
 
+  //Checking for unfilled inputs
   const emptyKeys = useMemo(
     () =>
       Object.keys(inputs)
@@ -81,6 +82,7 @@ export default function Modal({
       }
     };
 
+    // Disable focus on elements outside the dialog when the modal is open
     const handleFocus = (event) => {
       const dialog = document.querySelector("dialog");
       if (dialog && !dialog.contains(event.target)) {
@@ -89,7 +91,6 @@ export default function Modal({
       }
     };
 
-    // Disable focus on elements outside the dialog when the modal is open
     if (isOpen) {
       setFocusedElementBeforeModal(document.activeElement);
       document.addEventListener("keydown", handleEscape);
