@@ -4,7 +4,7 @@ import { useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 
 export default function DoubleWhammy(props) {
-  const { nodes } = useGLTF("../src/assets/doublewhammy.gltf");
+  const { nodes } = useGLTF("./doublewhammy.gltf");
   return (
     <group {...props} dispose={null}>
       <group rotation={[-Math.PI, 0, 0]}>
