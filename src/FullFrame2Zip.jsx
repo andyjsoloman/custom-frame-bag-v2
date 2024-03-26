@@ -4,7 +4,7 @@ import { useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 
 export default function FullFrame2Zip(props) {
-  const { nodes } = useGLTF("src/assets/fullframe2zip.gltf");
+  const { nodes } = useGLTF("../src/assets/fullframe2zip.gltf");
   return (
     <group {...props} dispose={null}>
       <group rotation={[-Math.PI, 0, 0]}>
