@@ -22,9 +22,11 @@ const Dialog = styled.dialog`
   background-color: white;
   padding: 16px;
   z-index: 1000;
+  width: 30%;
 `;
 
 export default function Modal({
+  isFormValid,
   isOpen,
   onClose,
   children,
@@ -121,23 +123,39 @@ export default function Modal({
               <h2 id="dialog-title">Hey!</h2>
 
               <div className="modal-content">
-                Please complete all required inputs. We&apos;re missing the
-                following info:
+                {isFormValid ? (
+                  <p>
+                    Your order info has been submitted! <br />
+                    Please schedule a time to come by our studio to have your
+                    bike measured OR create a template of your bag at home and
+                    mail it to the following address: <br></br> HMPL <br></br>
+                    432 Columbia st.<br></br>
+                    Vancouver, BC, Canada<br></br> V6A2R8
+                  </p>
+                ) : (
+                  <>
+                    <p>
+                      Please complete all required inputs. We&apos;re missing
+                      the following info:
+                    </p>
+
+                    {emptyKeys.length > 0 && (
+                      <ul>
+                        {emptyKeys.map((i) => (
+                          <li key={i}>{i}</li>
+                        ))}
+                      </ul>
+                    )}
+                    {emptyPanelColors.length > 0 && (
+                      <ul>
+                        {emptyPanelColors.map((i) => (
+                          <li key={i}>{i}</li>
+                        ))}
+                      </ul>
+                    )}
+                  </>
+                )}
               </div>
-              {emptyKeys.length > 0 && (
-                <ul>
-                  {emptyKeys.map((i) => (
-                    <li key={i}>{i}</li>
-                  ))}
-                </ul>
-              )}
-              {emptyPanelColors.length > 0 && (
-                <ul>
-                  {emptyPanelColors.map((i) => (
-                    <li key={i}>{i}</li>
-                  ))}
-                </ul>
-              )}
               <button onClick={onClose} className="close-button">
                 Ok
               </button>

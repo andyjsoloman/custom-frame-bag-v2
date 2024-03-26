@@ -112,9 +112,9 @@ export default function App() {
   function handleSubmit(e) {
     e.preventDefault();
     if (!isFormValid) {
-      setIsDialogOpen(true);
       return;
     }
+    setIsDialogOpen(true);
     console.log({ bagSize, inputs, panelColorNames });
   }
 
