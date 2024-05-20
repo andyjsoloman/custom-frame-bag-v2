@@ -6,11 +6,6 @@ import PanelColours from "./PanelColours";
 import BagButtonContainer from "./BagButtonContainer";
 import { defaultPanelColor, panelColorOptions } from "./constants";
 import styled from "styled-components";
-import useForm from "./lib/useForm";
-import OrderInfo from "./OrderInfo";
-import PocketsMounting from "./PocketsMounting";
-import Footer from "./Footer";
-import Modal from "./Modal";
 
 const NavHeader = styled.nav`
   display: flex;
@@ -44,7 +39,7 @@ const FormCard = styled.div`
   margin: 20px 40px 20px 20px;
 `;
 
-const FormContainer = styled.form`
+const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
 `;
@@ -91,68 +86,6 @@ export default function App() {
   };
 
   const [bagSize, setBagSize] = useState("Full Frame");
-  const [currentStep, setCurrentStep] = useState(1);
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
-
-  const closeDialog = () => {
-    setIsDialogOpen(false);
-  };
-
-  const { inputs, handleChange, isFormValid } = useForm({
-    name: "",
-    bike: "",
-    bikeSize: "",
-    email: "",
-    entry: "",
-    pockets: "",
-    mounting: "",
-    mountingDetails: "",
-  });
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    if (!isFormValid) {
-      return;
-    }
-    setIsDialogOpen(true);
-    console.log({ bagSize, inputs, panelColorNames });
-  }
-
-  const renderStep = () => {
-    switch (currentStep) {
-      case 1:
-        return (
-          <PanelColours
-            bagSize={bagSize}
-            setPanelColor={setPanelColor}
-            setCurrentStep={setCurrentStep}
-            currentStep={currentStep}
-            panelColor={panelColors}
-            panelColorNames={panelColorNames}
-          />
-        );
-      case 2:
-        return (
-          <PocketsMounting
-            inputs={inputs}
-            handleChange={handleChange}
-            setCurrentStep={setCurrentStep}
-            currentStep={currentStep}
-          />
-        );
-      case 3:
-        return (
-          <OrderInfo
-            inputs={inputs}
-            handleChange={handleChange}
-            setCurrentStep={setCurrentStep}
-            currentStep={currentStep}
-          />
-        );
-      default:
-        return null;
-    }
-  };
 
   return (
     <>
@@ -164,8 +97,13 @@ export default function App() {
       </BagButtonWrapper>
       <BodyWrapper>
         <FormCard>
-          <FormContainer id="frameBagForm" onSubmit={handleSubmit}>
-            {renderStep()}
+          <FormContainer>
+            <PanelColours
+              bagSize={bagSize}
+              setPanelColor={setPanelColor}
+              panelColor={panelColors}
+              panelColorNames={panelColorNames}
+            />
           </FormContainer>
         </FormCard>
         <FlexContainer>
@@ -191,17 +129,6 @@ export default function App() {
           </CanvasWrapper>
         </FlexContainer>
       </BodyWrapper>
-
-      <Footer bagSize={bagSize} inputs={inputs} />
-
-      <Modal
-        isOpen={isDialogOpen}
-        onClose={closeDialog}
-        inputs={inputs}
-        isFormValid={isFormValid}
-        panelColors={panelColors}
-        bagSize={bagSize}
-      />
     </>
   );
 }

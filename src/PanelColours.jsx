@@ -15,11 +15,9 @@ const RowTitle = styled.h3`
 `;
 
 export default function PanelColours({
-  panelColor,
   bagSize,
   setPanelColor,
-  setCurrentStep,
-  currentStep,
+
   panelColorNames,
 }) {
   return (
@@ -65,7 +63,6 @@ export default function PanelColours({
           </>
         )}
       </ColourOptions>
-      <button onClick={() => setCurrentStep(currentStep + 1)}>Next</button>
     </>
   );
 }
