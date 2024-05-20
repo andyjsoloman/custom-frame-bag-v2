@@ -42,7 +42,7 @@ export default function Price({ bagSize, inputs }) {
     ) {
       setHasDivider(false);
     }
-  }, [inputs, hasDivider, bagSize]);
+  }, [inputs, bagSize]);
 
   useEffect(() => {
     if (inputs.mounting === "Bolt-On") {
