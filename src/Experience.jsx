@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/no-unknown-property */
 import { ContactShadows, useHelper } from "@react-three/drei";
-import { useRef } from "react";
+import { useRef, Suspense } from "react";
 // import * as THREE from "three";
 // import { Perf } from "r3f-perf";
 
@@ -9,6 +9,7 @@ import FullFrame from "./FullFrame";
 import HalfFrame from "./HalfFrame";
 import DoubleWhammy from "./DoubleWhammy";
 import FullFrame2Zip from "./FullFrame2Zip";
+import Loading from "./Loading";
 
 export default function Experience({
   panel1Color,
@@ -53,50 +54,58 @@ export default function Experience({
       <ambientLight intensity={0.5} />
 
       {bagSize === "Full Frame" && (
-        <FullFrame
-          scale={0.1}
-          position={[-2.5, -1, 0]}
-          panel1Color={panel1Color}
-          panel2Color={panel2Color}
-          panel3Color={panel3Color}
-          panel4Color={panel4Color}
-        />
+        <Suspense fallback={<Loading />}>
+          <FullFrame
+            scale={0.1}
+            position={[-2.5, -1, 0]}
+            panel1Color={panel1Color}
+            panel2Color={panel2Color}
+            panel3Color={panel3Color}
+            panel4Color={panel4Color}
+          />
+        </Suspense>
       )}
       {bagSize === "Half Frame" && (
-        <HalfFrame
-          scale={0.1}
-          position={[-2.5, -1, 0]}
-          panel1Color={panel1Color}
-          panel2Color={panel2Color}
-          panel3Color={panel3Color}
-          panel4Color={panel4Color}
-        />
+        <Suspense fallback={<Loading />}>
+          <HalfFrame
+            scale={0.1}
+            position={[-2.5, -1, 0]}
+            panel1Color={panel1Color}
+            panel2Color={panel2Color}
+            panel3Color={panel3Color}
+            panel4Color={panel4Color}
+          />
+        </Suspense>
       )}
       {bagSize === "Double Whammy" && (
-        <DoubleWhammy
-          scale={0.1}
-          position={[-2.5, -1, 0]}
-          panel1Color={panel1Color}
-          panel2Color={panel2Color}
-          panel3Color={panel3Color}
-          panel4Color={panel4Color}
-          panel5Color={panel5Color}
-          panel6Color={panel6Color}
-          panel7Color={panel7Color}
-          panel8Color={panel8Color}
-        />
+        <Suspense fallback={<Loading />}>
+          <DoubleWhammy
+            scale={0.1}
+            position={[-2.5, -1, 0]}
+            panel1Color={panel1Color}
+            panel2Color={panel2Color}
+            panel3Color={panel3Color}
+            panel4Color={panel4Color}
+            panel5Color={panel5Color}
+            panel6Color={panel6Color}
+            panel7Color={panel7Color}
+            panel8Color={panel8Color}
+          />
+        </Suspense>
       )}
       {bagSize === "Full Frame 2 Zip" && (
-        <FullFrame2Zip
-          scale={0.1}
-          position={[-2.5, -1, 0]}
-          panel1Color={panel1Color}
-          panel2Color={panel2Color}
-          panel3Color={panel3Color}
-          panel4Color={panel4Color}
-          panel5Color={panel5Color}
-          panel6Color={panel6Color}
-        />
+        <Suspense fallback={<Loading />}>
+          <FullFrame2Zip
+            scale={0.1}
+            position={[-2.5, -1, 0]}
+            panel1Color={panel1Color}
+            panel2Color={panel2Color}
+            panel3Color={panel3Color}
+            panel4Color={panel4Color}
+            panel5Color={panel5Color}
+            panel6Color={panel6Color}
+          />
+        </Suspense>
       )}
     </>
   );
