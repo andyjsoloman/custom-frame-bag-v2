@@ -15,7 +15,8 @@ body,
   display: block;
 
   /* background: #fae9d4; */
-  background: #6eabb4;
+  background: #f0f8f9;
+  /* background: #6eabb4; */
 }
 .visually-hidden {
   position: absolute;

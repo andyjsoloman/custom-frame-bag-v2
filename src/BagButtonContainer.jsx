@@ -10,9 +10,9 @@ const Container = styled.div`
   /* position: absolute; */
   bottom: 150px;
   align-items: center;
-  justify-content: space-between;
-  padding: 40px 60px;
-  border: 2px solid grey;
+  justify-content: space-evenly;
+  padding: 40px;
+  /* border: 2px solid grey; */
   border-radius: 20px;
   background: #f0f8f9;
   margin-bottom: 20px;

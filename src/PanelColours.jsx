@@ -3,7 +3,7 @@ import ButtonRow from "./ButtonRow";
 import styled from "styled-components";
 
 const ColourOptions = styled.div`
-  overflow: scroll;
+  /* overflow: scroll; */
 `;
 
 const Title = styled.h2`

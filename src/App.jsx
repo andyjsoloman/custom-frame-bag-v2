@@ -10,8 +10,11 @@ import styled from "styled-components";
 const NavHeader = styled.nav`
   display: flex;
   justify-content: center;
-
-  margin: 40px;
+  background: #6eabb4;
+  width: 100%;
+  padding: 20px 0px;
+  position: sticky;
+  top: 0;
 `;
 
 const BodyWrapper = styled.div`
@@ -22,7 +25,7 @@ const BodyWrapper = styled.div`
 
 const BagButtonWrapper = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
 `;
 
 const FormCard = styled.div`
@@ -34,7 +37,7 @@ const FormCard = styled.div`
 
   /* overflow: scroll; */
   border-radius: 20px;
-  border: 2px solid grey;
+  /* border: 2px solid grey; */
   min-width: 600px;
   margin: 20px 40px 20px 20px;
 `;
@@ -45,11 +48,11 @@ const FormContainer = styled.div`
 `;
 
 const CanvasWrapper = styled.div`
-  border: 2px solid grey;
-  width: 600px;
-  min-height: 500px;
+  /* border: 2px solid grey; */
+  width: 800px;
+  min-height: 600px;
   align-items: center;
-  margin: 20px 40px 20px 20px;
+  margin: 20px;
   background-color: #f0f8f9;
   border-radius: 20px;
 
@@ -59,6 +62,7 @@ const CanvasWrapper = styled.div`
 
 const FlexContainer = styled.div`
   display: flex;
+
   /* justify-content: space-around; */
 `;
 
@@ -92,9 +96,7 @@ export default function App() {
       <NavHeader>
         <h1>Frame Bag Customizer</h1>
       </NavHeader>
-      <BagButtonWrapper>
-        <BagButtonContainer handleSelectBag={setBagSize} bagSize={bagSize} />
-      </BagButtonWrapper>
+
       <BodyWrapper>
         <FormCard>
           <FormContainer>
@@ -129,6 +131,9 @@ export default function App() {
           </CanvasWrapper>
         </FlexContainer>
       </BodyWrapper>
+      <BagButtonWrapper>
+        <BagButtonContainer handleSelectBag={setBagSize} bagSize={bagSize} />
+      </BagButtonWrapper>
     </>
   );
 }
