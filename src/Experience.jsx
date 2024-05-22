@@ -57,7 +57,8 @@ export default function Experience({
         <Suspense fallback={<Loading />}>
           <FullFrame
             scale={0.1}
-            position={[-2.5, -1, 0]}
+            rotation={[0.07, -0.75, 0]}
+            position={[-2, -1, 0]}
             panel1Color={panel1Color}
             panel2Color={panel2Color}
             panel3Color={panel3Color}
@@ -69,7 +70,8 @@ export default function Experience({
         <Suspense fallback={<Loading />}>
           <HalfFrame
             scale={0.1}
-            position={[-2.5, -1, 0]}
+            rotation={[0.07, -0.75, 0]}
+            position={[-2, -1, 0]}
             panel1Color={panel1Color}
             panel2Color={panel2Color}
             panel3Color={panel3Color}
@@ -81,7 +83,8 @@ export default function Experience({
         <Suspense fallback={<Loading />}>
           <DoubleWhammy
             scale={0.1}
-            position={[-2.5, -1, 0]}
+            rotation={[0.07, -0.75, 0]}
+            position={[-2, -1, 0]}
             panel1Color={panel1Color}
             panel2Color={panel2Color}
             panel3Color={panel3Color}
@@ -97,7 +100,8 @@ export default function Experience({
         <Suspense fallback={<Loading />}>
           <FullFrame2Zip
             scale={0.1}
-            position={[-2.5, -1, 0]}
+            rotation={[0.07, -0.75, 0]}
+            position={[-2, -1, 0]}
             panel1Color={panel1Color}
             panel2Color={panel2Color}
             panel3Color={panel3Color}
