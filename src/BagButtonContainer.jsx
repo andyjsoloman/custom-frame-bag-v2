@@ -4,13 +4,14 @@ import styled from "styled-components";
 import BagButton from "./BagButton";
 
 const Container = styled.div`
-  width: 1000px;
+  width: 50vw;
   display: flex;
   /* flex-direction: row; */
   /* position: absolute; */
   bottom: 150px;
   align-items: center;
-  justify-content: space-evenly;
+  gap: 20px;
+  justify-content: space-between;
   padding: 40px;
   /* border: 2px solid grey; */
   border-radius: 20px;
