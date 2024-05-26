@@ -1,11 +1,12 @@
-import { useState } from "react";
-import { Canvas } from "@react-three/fiber";
+import { useEffect, useState } from "react";
+import { Canvas, useThree } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import Experience from "./Experience";
 import PanelColours from "./PanelColours";
 import BagButtonContainer from "./BagButtonContainer";
 import { defaultPanelColor, panelColorOptions } from "./constants";
 import styled from "styled-components";
+import useWindowDimensions from "./lib/useWindowDimensions";
 
 const NavHeader = styled.nav`
   display: flex;
@@ -19,8 +20,14 @@ const NavHeader = styled.nav`
 
 const BodyWrapper = styled.div`
   display: flex;
+
   justify-content: center;
   /* align-items: center; */
+
+  @media (max-width: 1100px) {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
 `;
 
 const BagButtonWrapper = styled.div`
@@ -35,7 +42,7 @@ const FormCard = styled.div`
 
   border-radius: 20px;
   /* border: 2px solid grey; */
-  min-width: 600px;
+
   margin: 20px 40px 20px 20px;
 `;
 
@@ -52,16 +59,24 @@ const CanvasWrapper = styled.div`
   margin: 20px;
   background-color: #f0f8f9;
   border-radius: 20px;
+  & > div {
+    height: 600px;
+  }
 
-  /* display: flex;
-  justify-content: center; */
+  @media (max-width: 1100px) {
+    max-width: 100vw;
+    min-height: 400px;
+    & > div {
+      height: 500px;
+    }
+  }
 `;
 
 const FlexContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 50vw;
+  max-width: 80vw;
   /* justify-content: space-around; */
 `;
 
@@ -90,6 +105,10 @@ export default function App() {
 
   const [bagSize, setBagSize] = useState("Full Frame");
 
+  const { height, width } = useWindowDimensions();
+
+  console.log(height, width);
+
   return (
     <>
       <NavHeader>
@@ -110,12 +129,18 @@ export default function App() {
         <FlexContainer>
           <CanvasWrapper>
             <Canvas
+              style={{ width: "100% !important", height: "500px !important" }}
               shadows
               orthographic
-              camera={{ fov: 100, zoom: 80, position: [0, 2, 8] }}
+              camera={{
+                fov: 100,
+                zoom: Math.log(width) * 10,
+                position: [0, 2, 8],
+              }}
             >
               <OrbitControls />
               <Experience
+                style={{ width: "100% !important", height: "500px !important" }}
                 panel1Color={panelColors[0]}
                 panel2Color={panelColors[1]}
                 panel3Color={panelColors[2]}

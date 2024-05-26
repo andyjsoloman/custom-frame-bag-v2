@@ -14,9 +14,12 @@ const Container = styled.div`
   justify-content: space-between;
   padding: 40px;
   /* border: 2px solid grey; */
-  border-radius: 20px;
+
   background: #f0f8f9;
   margin-bottom: 20px;
+  @media (max-width: 1100px) {
+    flex-direction: column;
+  }
 `;
 
 export default function BagButtonContainer({ handleSelectBag, bagSize }) {

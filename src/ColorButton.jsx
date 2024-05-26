@@ -6,7 +6,7 @@ const Button = styled.button`
   height: 40px;
   border-radius: 50%;
   border: 1px solid black;
-  margin: 0px 4px;
+  margin: 4px;
   background-color: ${(props) => props.color};
   cursor: pointer;
 `;
