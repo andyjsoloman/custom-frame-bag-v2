@@ -24,40 +24,40 @@ export default function PanelColours({
     <>
       <Title>Panel Colours</Title>
       <ColourOptions>
-        <RowTitle>Section 1: </RowTitle>
+        <RowTitle>Panel 1: </RowTitle>
         <span>{panelColorNames[0]}</span>
         <ButtonRow handleSelectColor={setPanelColor} panelIndex={0} />
-        <RowTitle>Section 2: </RowTitle>
+        <RowTitle>Panel 2: </RowTitle>
         <span>{panelColorNames[1]}</span>
         <ButtonRow handleSelectColor={setPanelColor} panelIndex={1} />
-        <RowTitle>Section 3: </RowTitle>
+        <RowTitle>Panel 3: </RowTitle>
         <span>{panelColorNames[2]}</span>
         <ButtonRow handleSelectColor={setPanelColor} panelIndex={2} />
-        <RowTitle>Section 4: </RowTitle>
+        <RowTitle>Panel 4: </RowTitle>
         <span>{panelColorNames[3]}</span>
         <ButtonRow handleSelectColor={setPanelColor} panelIndex={3} />
         {bagSize === "Full Frame 2 Zip" && (
           <>
-            <RowTitle>Section 5: </RowTitle>
+            <RowTitle>Panel 5: </RowTitle>
             <span>{panelColorNames[4]}</span>
             <ButtonRow handleSelectColor={setPanelColor} panelIndex={4} />
-            <RowTitle>Section 6</RowTitle>
+            <RowTitle>Panel 6</RowTitle>
             <span>{panelColorNames[5]}</span>
             <ButtonRow handleSelectColor={setPanelColor} panelIndex={5} />
           </>
         )}
         {bagSize === "Double Whammy" && (
           <>
-            <RowTitle>Section 5: </RowTitle>
+            <RowTitle>Panel 5: </RowTitle>
             <span>{panelColorNames[4]}</span>
             <ButtonRow handleSelectColor={setPanelColor} panelIndex={4} />
-            <RowTitle>Section 6: </RowTitle>
+            <RowTitle>Panel 6: </RowTitle>
             <span>{panelColorNames[5]}</span>
             <ButtonRow handleSelectColor={setPanelColor} panelIndex={5} />
-            <RowTitle>Section 7: </RowTitle>
+            <RowTitle>Panel 7: </RowTitle>
             <span>{panelColorNames[6]}</span>
             <ButtonRow handleSelectColor={setPanelColor} panelIndex={6} />
-            <RowTitle>Section 8: </RowTitle>
+            <RowTitle>Panel 8: </RowTitle>
             <span>{panelColorNames[7]}</span>
             <ButtonRow handleSelectColor={setPanelColor} panelIndex={7} />
           </>

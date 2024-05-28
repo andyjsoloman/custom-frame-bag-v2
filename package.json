@@ -16,6 +16,7 @@
     "r3f-perf": "^7.1.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-select": "^5.8.0",
     "styled-components": "^6.1.8",
     "vercel": "^33.6.1"
   },

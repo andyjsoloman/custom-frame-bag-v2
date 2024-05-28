@@ -105,9 +105,7 @@ export default function App() {
 
   const [bagSize, setBagSize] = useState("Full Frame");
 
-  const { height, width } = useWindowDimensions();
-
-  console.log(height, width);
+  const { width } = useWindowDimensions();
 
   return (
     <>
