@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { Canvas, useThree } from "@react-three/fiber";
+import { useState } from "react";
+import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import Experience from "./Experience";
 import PanelColours from "./PanelColours";

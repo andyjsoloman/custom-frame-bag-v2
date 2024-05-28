@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { useState } from "react";
 import { panelColorOptions } from "./constants";
 import ColorButton from "./ColorButton";
 import styled from "styled-components";
@@ -8,6 +9,13 @@ const ButtonDiv = styled.div`
 `;
 
 export default function ButtonRow({ handleSelectColor, panelIndex }) {
+  const [selectedColor, setSelectedColor] = useState(null);
+
+  const handleButtonClick = (panelIndex, color, label) => {
+    setSelectedColor(color);
+    handleSelectColor(panelIndex, color, label);
+  };
+
   return (
     <ButtonDiv>
       {panelColorOptions.map((button, index) => (
@@ -16,8 +24,9 @@ export default function ButtonRow({ handleSelectColor, panelIndex }) {
           label={button.label}
           color={button.color}
           onClick={() =>
-            handleSelectColor(panelIndex, button.color, button.label)
+            handleButtonClick(panelIndex, button.color, button.label)
           }
+          selected={selectedColor === button.color}
         />
       ))}
     </ButtonDiv>
