@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import ButtonRow from "./ButtonRow";
 import styled from "styled-components";
+import { useState, useEffect, useMemo } from "react";
 
 const ColourOptions = styled.div`
   /* overflow: scroll; */
@@ -20,9 +21,19 @@ export default function PanelColours({
 
   panelColorNames,
 }) {
+  const [numPanels, setNumPanels] = useState(4);
+
+  const panelCount = useMemo(
+    () => ({ "Full Frame 2 Zip": 6, "Double Whammy": 8 }),
+    []
+  );
+
+  useEffect(() => {
+    setNumPanels(panelCount[bagSize] || 4);
+  }, [bagSize, panelCount]);
   return (
     <>
-      <Title>Panel Colours</Title>
+      <Title>Panel Colours ({numPanels})</Title>
       <ColourOptions>
         <RowTitle>Panel 1: </RowTitle>
         <span>{panelColorNames[0]}</span>

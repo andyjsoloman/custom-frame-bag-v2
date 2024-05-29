@@ -11,6 +11,7 @@ import useWindowDimensions from "./lib/useWindowDimensions";
 const NavHeader = styled.nav`
   display: flex;
   justify-content: center;
+  align-items: center;
   background: #6eabb4;
   width: 100%;
   padding: 20px 0px;
@@ -18,10 +19,32 @@ const NavHeader = styled.nav`
   top: 0; */
 `;
 
+const HeaderLogo = styled.img`
+  width: 100px;
+  position: absolute;
+  left: 20px;
+  top: 12px;
+  @media (max-width: 1100px) {
+    width: 60px;
+    left: 10px;
+  }
+`;
+
+const HeaderWrapper = styled.div`
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Header = styled.h1`
+  margin: 0;
+`;
+
 const BodyWrapper = styled.div`
   display: flex;
 
-  justify-content: center;
+  justify-content: space-evenly;
   /* align-items: center; */
 
   @media (max-width: 1100px) {
@@ -32,7 +55,7 @@ const BodyWrapper = styled.div`
 
 const BagButtonWrapper = styled.div`
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
 `;
 
 const FormCard = styled.div`
@@ -42,8 +65,11 @@ const FormCard = styled.div`
 
   border-radius: 20px;
   /* border: 2px solid grey; */
-  min-width: 300px;
+  min-width: 550px;
   margin: 20px;
+  @media (max-width: 1100px) {
+    min-width: 320px;
+  }
 `;
 
 const FormContainer = styled.div`
@@ -53,7 +79,7 @@ const FormContainer = styled.div`
 `;
 
 const CanvasWrapper = styled.div`
-  width: 600px;
+  width: 460px;
   min-height: 600px;
   /* align-items: center; */
   margin: 20px;
@@ -110,9 +136,14 @@ export default function App() {
   return (
     <>
       <NavHeader>
-        <h1>Frame Bag Customizer</h1>
+        <HeaderLogo src="/public/logo.webp" alt="logo" />
+        <HeaderWrapper>
+          <Header>Frame Bag Colour Picker</Header>
+        </HeaderWrapper>
       </NavHeader>
-
+      <BagButtonWrapper>
+        <BagButtonContainer handleSelectBag={setBagSize} bagSize={bagSize} />
+      </BagButtonWrapper>
       <BodyWrapper>
         <FormCard>
           <FormContainer>
@@ -151,12 +182,6 @@ export default function App() {
               />
             </Canvas>
           </CanvasWrapper>
-          <BagButtonWrapper>
-            <BagButtonContainer
-              handleSelectBag={setBagSize}
-              bagSize={bagSize}
-            />
-          </BagButtonWrapper>
         </FlexContainer>
       </BodyWrapper>
     </>

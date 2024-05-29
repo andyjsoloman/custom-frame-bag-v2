@@ -7,7 +7,7 @@ import styled from "styled-components";
 import ColorSelect from "./ColorSelect";
 
 const ButtonDiv = styled.div`
-  margin: 12px 20px 40px 20px;
+  margin: 12px 20px 24px 20px;
   display: none;
 
   @media (min-width: 1100px) {
