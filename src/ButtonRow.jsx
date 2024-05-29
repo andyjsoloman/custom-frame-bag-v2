@@ -8,6 +8,17 @@ import ColorSelect from "./ColorSelect";
 
 const ButtonDiv = styled.div`
   margin: 12px 20px 40px 20px;
+  display: none;
+
+  @media (min-width: 1100px) {
+    display: revert;
+  }
+`;
+
+const SelectWrapper = styled.div`
+  @media (min-width: 1100px) {
+    display: none;
+  }
 `;
 
 export default function ButtonRow({ handleSelectColor, panelIndex }) {
@@ -23,19 +34,23 @@ export default function ButtonRow({ handleSelectColor, panelIndex }) {
   };
 
   return (
-    <ButtonDiv>
-      {panelColorOptions.map((button, index) => (
-        <ColorButton
-          key={index}
-          label={button.label}
-          color={button.color}
-          onClick={() =>
-            handleButtonClick(panelIndex, button.color, button.label)
-          }
-          selected={selectedColor === button.color}
-        />
-      ))}
-      <ColorSelect onChange={handleSelect} />
-    </ButtonDiv>
+    <>
+      <ButtonDiv>
+        {panelColorOptions.map((button, index) => (
+          <ColorButton
+            key={index}
+            label={button.label}
+            color={button.color}
+            onClick={() =>
+              handleButtonClick(panelIndex, button.color, button.label)
+            }
+            selected={selectedColor === button.color}
+          />
+        ))}
+      </ButtonDiv>
+      <SelectWrapper>
+        <ColorSelect onChange={handleSelect} />
+      </SelectWrapper>
+    </>
   );
 }

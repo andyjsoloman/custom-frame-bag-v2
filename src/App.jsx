@@ -37,27 +37,27 @@ const BagButtonWrapper = styled.div`
 
 const FormCard = styled.div`
   display: flex;
-  background-color: #f0f8f9;
+
   padding: 20px;
 
   border-radius: 20px;
   /* border: 2px solid grey; */
-
-  margin: 20px 40px 20px 20px;
+  min-width: 300px;
+  margin: 20px;
 `;
 
 const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
-  /* overflow: auto; */
+  width: 100%;
 `;
 
 const CanvasWrapper = styled.div`
-  width: 800px;
+  width: 600px;
   min-height: 600px;
   /* align-items: center; */
   margin: 20px;
-  background-color: #f0f8f9;
+
   border-radius: 20px;
   & > div {
     height: 600px;
