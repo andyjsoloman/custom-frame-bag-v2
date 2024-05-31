@@ -19,6 +19,7 @@ export default function BagSelect({ onChange }) {
       onChange={(selectedOption) => {
         onChange(selectedOption.value);
       }}
+      placeholder="Change Bag Style..."
       isSearchable={false}
     />
   );

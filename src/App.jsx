@@ -137,7 +137,7 @@ export default function App() {
   return (
     <>
       <NavHeader>
-        <HeaderLogo src="/public/logo.webp" alt="logo" />
+        <HeaderLogo src="./logo.webp" alt="logo" />
         <HeaderWrapper>
           <Header>Frame Bag Colour Picker</Header>
         </HeaderWrapper>
