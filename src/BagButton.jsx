@@ -19,13 +19,19 @@ const Button = styled.button`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+
+  display: none;
+
+  @media (min-width: 1170px) {
+    display: revert;
+  }
 `;
 
 export default function BagButton({ onClick, label, bagSize }) {
   const isActive = bagSize === label;
 
   return (
-    <Button onClick={onClick} isActive={isActive}>
+    <Button onClick={onClick} isActive={isActive ? 1 : 0}>
       {label}
     </Button>
   );
