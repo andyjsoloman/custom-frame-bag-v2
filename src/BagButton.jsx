@@ -1,50 +1,31 @@
 /* eslint-disable react/prop-types */
-import { useState, useEffect } from "react";
-import BagButtonIcon from "./BagButtonIcon";
 import styled from "styled-components";
 
 const Button = styled.button`
-  font-family: "Lexend", sans-serif;
-  display: flex;
-  padding: 6px 12px 8px 12px;
+  color: ${(props) => (props.isActive ? "#f0f8f9" : "#4d7075")};
+  background-color: ${(props) => (props.isActive ? "#4d7075" : "#f0f8f9")};
 
+  letter-spacing: 1px;
+  display: flex;
+  padding: 12px 20px;
+  /* white-space: nowrap; */
   justify-content: center;
   align-items: center;
-  gap: 5px;
-  border: none;
+
+  border: 2px solid #4d7075;
   border-radius: 8px;
-  background: #dce6e7;
-
-  /* 3D Button */
-  box-shadow: 1px -2px 1px 0px rgba(0, 0, 0, 0.25) inset,
-    -0.5px 1px 1px 0px #fff inset, 0px 2px 4px 0px rgba(0, 0, 0, 0.1),
-    0px -1px 2px 0px rgba(0, 0, 0, 0.2) inset,
-    0px 1px 1px 0px rgba(0, 0, 0, 0.1), 0px 8px 12px 0px rgba(0, 0, 0, 0.08);
-
-  color: #201e1a;
-
-  text-shadow: 0.25px 0.5px 1px #fff;
 
   font-size: 16px;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 400;
   line-height: normal;
 `;
 
 export default function BagButton({ onClick, label, bagSize }) {
-  const [fillColor, setFillColor] = useState("#D8D8D8");
-
-  useEffect(() => {
-    if (bagSize === label) {
-      setFillColor("#8DF98B");
-    } else {
-      setFillColor("#D8D8D8");
-    }
-  }, [bagSize, label]);
+  const isActive = bagSize === label;
 
   return (
-    <Button onClick={onClick}>
-      <BagButtonIcon fillColor={fillColor} />
+    <Button onClick={onClick} isActive={isActive}>
       {label}
     </Button>
   );

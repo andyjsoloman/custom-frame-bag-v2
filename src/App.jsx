@@ -44,7 +44,7 @@ const Header = styled.h1`
 const BodyWrapper = styled.div`
   display: flex;
 
-  justify-content: space-evenly;
+  justify-content: center;
   /* align-items: center; */
 
   @media (max-width: 1100px) {
@@ -66,7 +66,7 @@ const FormCard = styled.div`
   border-radius: 20px;
   /* border: 2px solid grey; */
   min-width: 550px;
-  margin: 20px;
+  margin: 120px 20px;
   @media (max-width: 1100px) {
     min-width: 320px;
   }
@@ -141,9 +141,7 @@ export default function App() {
           <Header>Frame Bag Colour Picker</Header>
         </HeaderWrapper>
       </NavHeader>
-      <BagButtonWrapper>
-        <BagButtonContainer handleSelectBag={setBagSize} bagSize={bagSize} />
-      </BagButtonWrapper>
+
       <BodyWrapper>
         <FormCard>
           <FormContainer>
@@ -156,6 +154,12 @@ export default function App() {
           </FormContainer>
         </FormCard>
         <FlexContainer>
+          <BagButtonWrapper>
+            <BagButtonContainer
+              handleSelectBag={setBagSize}
+              bagSize={bagSize}
+            />
+          </BagButtonWrapper>
           <CanvasWrapper>
             <Canvas
               style={{ width: "100% !important", height: "500px !important" }}
