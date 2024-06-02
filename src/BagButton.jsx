@@ -2,13 +2,12 @@
 import styled from "styled-components";
 
 const Button = styled.button`
-  color: ${(props) => (props.isActive ? "#f0f8f9" : "#4d7075")};
-  background-color: ${(props) => (props.isActive ? "#4d7075" : "#f0f8f9")};
+  color: ${(props) => (props.$isActive ? "#f0f8f9" : "#4d7075")};
+  background-color: ${(props) => (props.$isActive ? "#4d7075" : "#f0f8f9")};
 
   letter-spacing: 1px;
   display: flex;
   padding: 12px 20px;
-  /* white-space: nowrap; */
   justify-content: center;
   align-items: center;
 
@@ -31,7 +30,7 @@ export default function BagButton({ onClick, label, bagSize }) {
   const isActive = bagSize === label;
 
   return (
-    <Button onClick={onClick} isActive={isActive ? 1 : 0}>
+    <Button onClick={onClick} $isActive={isActive}>
       {label}
     </Button>
   );

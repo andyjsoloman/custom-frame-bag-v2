@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import Experience from "./Experience";
@@ -7,6 +7,14 @@ import BagButtonContainer from "./BagButtonContainer";
 import { defaultPanelColor, panelColorOptions } from "./constants";
 import styled from "styled-components";
 import useWindowDimensions from "./lib/useWindowDimensions";
+import Footer from "./Footer";
+
+const Root = styled.div`
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
 
 const NavHeader = styled.nav`
   display: flex;
@@ -92,9 +100,9 @@ const CanvasWrapper = styled.div`
 
   @media (max-width: 1100px) {
     max-width: 100vw;
-    min-height: 400px;
+    min-height: 300px;
     & > div {
-      height: 500px;
+      height: 300px;
     }
   }
 `;
@@ -131,11 +139,22 @@ export default function App() {
   };
 
   const [bagSize, setBagSize] = useState("Full Frame");
+  const [zoomLevel, setZoomLevel] = useState(80);
 
   const { width } = useWindowDimensions();
 
+  useEffect(() => {
+    if (width > 1100) {
+      setZoomLevel(80);
+    } else if (width < 1100 && width > 400) {
+      setZoomLevel(60);
+    } else if (width < 400) {
+      setZoomLevel(40);
+    }
+  }, [width]);
+
   return (
-    <>
+    <Root>
       <NavHeader>
         <HeaderLogo src="./logo.webp" alt="logo" />
         <HeaderWrapper>
@@ -163,18 +182,18 @@ export default function App() {
           </BagButtonWrapper>
           <CanvasWrapper>
             <Canvas
-              style={{ width: "100% !important", height: "500px !important" }}
+              style={{ width: "100%", height: "500px !important" }}
               shadows
               orthographic
               camera={{
                 fov: 100,
-                zoom: Math.log(width) * 10,
+                zoom: zoomLevel,
                 position: [0, 2, 8],
               }}
             >
               <OrbitControls />
               <Experience
-                style={{ width: "100% !important", height: "500px !important" }}
+                // style={{ width: "100% !important", height: "500px !important" }}
                 panel1Color={panelColors[0]}
                 panel2Color={panelColors[1]}
                 panel3Color={panelColors[2]}
@@ -189,6 +208,7 @@ export default function App() {
           </CanvasWrapper>
         </FlexContainer>
       </BodyWrapper>
-    </>
+      <Footer />
+    </Root>
   );
 }

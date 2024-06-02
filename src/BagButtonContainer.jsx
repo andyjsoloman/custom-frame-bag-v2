@@ -21,7 +21,7 @@ const Container = styled.div`
   @media (max-width: 1100px) {
     flex-direction: column;
     padding: 0px;
-    margin: 40px 0px -40px 0px;
+    margin: 40px 0px 0px 0px;
     z-index: 1;
   }
 `;
