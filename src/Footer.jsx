@@ -6,7 +6,8 @@ const FooterDiv = styled.div`
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  padding-top: 40px;
+  padding: 40px 0px 12px 0px;
+  color: #33494c;
 `;
 
 function Footer() {
