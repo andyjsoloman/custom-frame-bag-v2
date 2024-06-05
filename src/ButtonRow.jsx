@@ -8,7 +8,7 @@ import ColorSelect from "./ColorSelect";
 
 const ButtonDiv = styled.div`
   margin: 12px 20px 24px 20px;
-  display: none;
+  /* display: none;
 
   @media (min-width: 1100px) {
     display: revert;
@@ -16,6 +16,23 @@ const ButtonDiv = styled.div`
 `;
 
 const SelectWrapper = styled.div`
+  @media (min-width: 1100px) {
+    display: none;
+  } */
+`;
+
+const ColorOption = styled.div`
+  padding: 4px;
+  display: flex;
+  align-items: center;
+
+  @media (min-width: 1100px) {
+    display: inline;
+    padding: 0px;
+  }
+`;
+
+const ColorTitle = styled.span`
   @media (min-width: 1100px) {
     display: none;
   }
@@ -37,20 +54,25 @@ export default function ButtonRow({ handleSelectColor, panelIndex }) {
     <>
       <ButtonDiv>
         {panelColorOptions.map((button, index) => (
-          <ColorButton
+          <ColorOption
             key={index}
-            label={button.label}
-            color={button.color}
             onClick={() =>
               handleButtonClick(panelIndex, button.color, button.label)
             }
-            selected={selectedColor === button.color}
-          />
+          >
+            <ColorButton
+              key={index}
+              label={button.label}
+              color={button.color}
+              selected={selectedColor === button.color}
+            />
+            <ColorTitle>{button.label}</ColorTitle>
+          </ColorOption>
         ))}
       </ButtonDiv>
-      <SelectWrapper>
+      {/* <SelectWrapper>
         <ColorSelect onChange={handleSelect} />
-      </SelectWrapper>
+      </SelectWrapper> */}
     </>
   );
 }
