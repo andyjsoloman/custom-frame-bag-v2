@@ -74,10 +74,11 @@ const FormCard = styled.div`
   border-radius: 20px;
   /* border: 2px solid grey; */
   min-width: 550px;
-  margin: 120px 20px;
+  margin: 200px 20px;
   @media (max-width: 1100px) {
     min-width: 320px;
-    margin-top: 0px;
+    margin: 0px;
+    width: 100%;
   }
 `;
 
@@ -168,8 +169,8 @@ export default function App() {
             <PanelColours
               bagSize={bagSize}
               setPanelColor={setPanelColor}
-              panelColor={panelColors}
               panelColorNames={panelColorNames}
+              panelColors={panelColors}
             />
           </FormContainer>
         </FormCard>

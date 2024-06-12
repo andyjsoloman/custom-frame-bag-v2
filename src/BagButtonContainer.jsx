@@ -28,6 +28,8 @@ const Container = styled.div`
 `;
 
 const SelectDiv = styled.div`
+  display: flex;
+  justify-content: center;
   width: 280px;
   @media (min-width: 1170px) {
     display: none;

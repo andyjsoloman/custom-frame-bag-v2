@@ -12,7 +12,7 @@ export const panelColorOptions = [
   { label: "Black", color: "#252829" },
 ];
 
-export const defaultPanelColor = "#FFF";
+export const defaultPanelColor = "#f0f8f9";
 
 export const bagSizes = [
   { label: "Full Frame" },

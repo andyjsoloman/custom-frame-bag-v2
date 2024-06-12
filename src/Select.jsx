@@ -2,7 +2,7 @@
 import React from "react";
 import styled from "styled-components";
 import { COLORS } from "./constants";
-import { CaretCircleDown } from "@phosphor-icons/react";
+import { CaretDown } from "@phosphor-icons/react";
 
 const Select = ({ value, onChange, children }) => {
   function getDisplayedValue(value, children) {
@@ -24,7 +24,7 @@ const Select = ({ value, onChange, children }) => {
       <PresentationalBit>
         {displayedValue}
         <IconWrapper style={{ "--size": 32 + "px" }}>
-          <CaretCircleDown size={32} />
+          <CaretDown size={32} color="#4d7075" />
         </IconWrapper>
       </PresentationalBit>
     </Wrapper>
@@ -46,8 +46,9 @@ const NativeSelect = styled.select`
 `;
 
 const PresentationalBit = styled.div`
-  color: ${COLORS.gray700};
-  background-color: ${COLORS.transparentGray15};
+  color: #101a1b;
+  border: 2px solid #4d7075;
+  background-color: #f0f8f9;
   font-size: ${16 / 16}rem;
   padding: 12px 16px;
   padding-right: 52px;
