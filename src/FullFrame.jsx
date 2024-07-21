@@ -19,7 +19,6 @@ export default function FullFrame(props) {
               color: props.panel1Color,
             })
           }
-          color={"coral"}
         />
         <mesh
           castShadow
@@ -55,7 +54,7 @@ export default function FullFrame(props) {
           castShadow
           receiveShadow
           geometry={nodes.FrameBagv2_6.geometry}
-          material={new THREE.MeshStandardMaterial()}
+          material={new THREE.MeshStandardMaterial({ color: "#2E2E2E" })}
         />
       </group>
     </group>

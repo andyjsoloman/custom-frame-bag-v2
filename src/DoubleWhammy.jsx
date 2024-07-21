@@ -53,7 +53,7 @@ export default function DoubleWhammy(props) {
           castShadow
           receiveShadow
           geometry={nodes.DoubleWhammy_6.geometry}
-          material={new THREE.MeshStandardMaterial()}
+          material={new THREE.MeshStandardMaterial({ color: "#2E2E2E" })}
         />
         <mesh
           castShadow

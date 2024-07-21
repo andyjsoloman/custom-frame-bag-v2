@@ -52,7 +52,7 @@ export default function HalfFrame(props) {
           castShadow
           receiveShadow
           geometry={nodes.HalfFrameBag_6.geometry}
-          material={new THREE.MeshStandardMaterial()}
+          material={new THREE.MeshStandardMaterial({ color: "#2E2E2E" })}
         />
       </group>
     </group>
