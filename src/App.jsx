@@ -89,7 +89,7 @@ const FormContainer = styled.div`
 `;
 
 const CanvasWrapper = styled.div`
-  width: 460px;
+  width: 800px;
   min-height: 600px;
   /* align-items: center; */
   margin: 20px;

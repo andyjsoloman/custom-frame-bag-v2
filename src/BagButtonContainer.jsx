@@ -2,7 +2,6 @@
 import { bagSizes } from "./constants";
 import styled from "styled-components";
 import BagButton from "./BagButton";
-import BagSelect from "./BagSelect";
 import BagSelectEdit from "./BagSelectEdit";
 
 const Container = styled.div`

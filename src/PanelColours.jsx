@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import ButtonRow from "./ButtonRow";
 import styled, { css } from "styled-components";
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import { CaretCircleDown } from "@phosphor-icons/react";
 
 const ColourOptions = styled.div`
@@ -63,11 +63,21 @@ export default function PanelColours({
 }) {
   const [numPanels, setNumPanels] = useState(4);
   const [openPanels, setOpenPanels] = useState([]);
+  const colorButtonRefs = useRef([]);
 
   const panelCount = useMemo(
     () => ({ "Full Frame 2 Zip": 6, "Double Whammy": 8 }),
     []
   );
+
+  useEffect(() => {
+    // Focus on the first ColorButton when a panel is expanded
+    openPanels.forEach((index) => {
+      if (colorButtonRefs.current[index]) {
+        colorButtonRefs.current[index].focus();
+      }
+    });
+  }, [openPanels]); // Run effect whenever openPanels changes
 
   useEffect(() => {
     setNumPanels(panelCount[bagSize] || 4);
@@ -81,9 +91,23 @@ export default function PanelColours({
     );
   };
 
+  const handleKeyDown = (event, index) => {
+    if (event.key === "Enter") {
+      togglePanel(index);
+    }
+  };
+
   const renderPanel = (index) => (
     <div key={index}>
-      <RowTitle onClick={() => togglePanel(index)}>
+      <RowTitle
+        onClick={() => togglePanel(index)}
+        onKeyDown={(event) => handleKeyDown(event, index)}
+        tabIndex={0}
+        role="menu"
+        aria-haspopup="true"
+        aria-expanded={openPanels.includes(index)}
+        aria-controls={`panel-${index + 1}-menu`}
+      >
         <h3>Panel {index + 1}:</h3>
 
         <PanelColorName>{panelColorNames[index]}</PanelColorName>
@@ -95,7 +119,12 @@ export default function PanelColours({
         </IconWrapper>
       </RowTitle>
       {openPanels.includes(index) && (
-        <ButtonRow handleSelectColor={setPanelColor} panelIndex={index} />
+        <ButtonRow
+          id={`panel-${index + 1}-menu`}
+          handleSelectColor={setPanelColor}
+          panelIndex={index}
+          isOpen={openPanels.includes(index)}
+        />
       )}
     </div>
   );

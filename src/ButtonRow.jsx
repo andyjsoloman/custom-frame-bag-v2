@@ -4,22 +4,11 @@ import { panelColorOptions } from "./constants";
 import ColorButton from "./ColorButton";
 import styled from "styled-components";
 
-const ButtonDiv = styled.div`
-  margin: 12px 20px 24px 20px;
-  /* display: none;
-
-  @media (min-width: 1100px) {
-    display: revert;
-  }
+const ButtonDiv = styled.ul`
+  margin: 12px 20px 24px 0px;
 `;
 
-const SelectWrapper = styled.div`
-  @media (min-width: 1100px) {
-    display: none;
-  } */
-`;
-
-const ColorOption = styled.div`
+const ColorOption = styled.li`
   padding: 4px;
   display: flex;
   align-items: center;
@@ -37,16 +26,17 @@ const ColorTitle = styled.span`
   }
 `;
 
-export default function ButtonRow({ handleSelectColor, panelIndex }) {
+export default function ButtonRow({
+  handleSelectColor,
+  panelIndex,
+  isOpen,
+  colorButtonRef,
+}) {
   const [selectedColor, setSelectedColor] = useState(null);
 
   const handleButtonClick = (panelIndex, color, label) => {
     setSelectedColor(color);
     handleSelectColor(panelIndex, color, label);
-  };
-
-  const handleSelect = (selectedOption) => {
-    handleSelectColor(panelIndex, selectedOption.color, selectedOption.label);
   };
 
   return (
@@ -60,10 +50,13 @@ export default function ButtonRow({ handleSelectColor, panelIndex }) {
             }
           >
             <ColorButton
+              ref={index === 0 ? colorButtonRef : null}
               key={index}
+              role="menuitem"
               label={button.label}
               color={button.color}
               selected={selectedColor === button.color}
+              tabIndex={isOpen ? 0 : -1}
             />
             <ColorTitle>{button.label}</ColorTitle>
           </ColorOption>

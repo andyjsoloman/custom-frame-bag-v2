@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import styled from "styled-components";
+import { forwardRef } from "react";
 
 const Button = styled.button`
   width: 32px;
@@ -10,21 +11,27 @@ const Button = styled.button`
   background-color: ${(props) => props.color};
   cursor: pointer;
   opacity: ${(props) => (props.selected ? "100%" : "75%")};
-  outline: ${(props) => (props.selected ? "2px solid black" : "none")};
-  outline-offset: 2px;
+  outline: none;
+  &:focus-visible {
+    outline: 2px solid blue;
+    outline-offset: 2px;
+  }
 `;
 
-export default function ColorButton({ color, onClick, label, selected }) {
-  return (
-    <Button
-      type="button"
-      color={color}
-      title={label}
-      onClick={onClick}
-      selected={selected}
-    >
-      {" "}
-      <span className="visually-hidden">{label}</span>
-    </Button>
-  );
-}
+const ColorButton = forwardRef(({ color, onClick, label, selected }, ref) => (
+  <Button
+    ref={ref}
+    type="button"
+    color={color}
+    title={label}
+    aria-label={label}
+    onClick={onClick}
+    selected={selected}
+  >
+    {" "}
+  </Button>
+));
+
+ColorButton.displayName = "ColorButton";
+
+export default ColorButton;

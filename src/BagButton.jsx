@@ -10,7 +10,7 @@ const Button = styled.button`
   padding: 12px 20px;
   justify-content: center;
   align-items: center;
-
+  cursor: pointer;
   border: 2px solid #4d7075;
   border-radius: 8px;
 
@@ -23,6 +23,10 @@ const Button = styled.button`
 
   @media (min-width: 1170px) {
     display: revert;
+  }
+  &:focus-visible {
+    outline: 2px solid blue;
+    outline-offset: 2px;
   }
 `;
 
