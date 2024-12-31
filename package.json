@@ -19,7 +19,7 @@
     "react-dom": "^18.2.0",
     "react-select": "^5.8.0",
     "styled-components": "^6.1.8",
-    "vercel": "^33.6.1"
+    "vercel": "^39.2.2"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",
