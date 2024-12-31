@@ -157,7 +157,9 @@ export default function App() {
   return (
     <Root>
       <NavHeader>
-        <HeaderLogo src="./logo.webp" alt="logo" />
+        <a href="https://hmpl.ca" target="_blank" rel="noopener noreferrer">
+          <HeaderLogo src="./logo.webp" alt="logo" />
+        </a>
         <HeaderWrapper>
           <Header>Frame Bag Colour Picker</Header>
         </HeaderWrapper>
