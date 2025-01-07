@@ -27,24 +27,25 @@ export default function Experience({
   const directionalLight2 = useRef();
   const ambientLight = useRef();
 
-  useEffect(() => {
-    const gui = new lil.GUI();
+  //LIGHTING GUI/HELPERS
+  // useEffect(() => {
+  //   const gui = new lil.GUI();
 
-    // Add controls for directional lights
-    gui
-      .add(directionalLight.current, "intensity", 0, 5, 0.1)
-      .name("Dir Light 1");
-    gui
-      .add(directionalLight2.current, "intensity", 0, 5, 0.1)
-      .name("Dir Light 2");
+  //   // Add controls for directional lights
+  //   gui
+  //     .add(directionalLight.current, "intensity", 0, 5, 0.1)
+  //     .name("Dir Light 1");
+  //   gui
+  //     .add(directionalLight2.current, "intensity", 0, 5, 0.1)
+  //     .name("Dir Light 2");
 
-    // Add control for ambient light
-    gui.add(ambientLight.current, "intensity", 0, 2, 0.1).name("Ambient Light");
+  //   // Add control for ambient light
+  //   gui.add(ambientLight.current, "intensity", 0, 2, 0.1).name("Ambient Light");
 
-    return () => {
-      gui.destroy(); // Cleanup GUI on unmount
-    };
-  }, []);
+  //   return () => {
+  //     gui.destroy(); // Cleanup GUI on unmount
+  //   };
+  // }, []);
   // useHelper(directionalLight, THREE.DirectionalLightHelper, 1);
   // useHelper(directionalLight2, THREE.DirectionalLightHelper, 1);
 
